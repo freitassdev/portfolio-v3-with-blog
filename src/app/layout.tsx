@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import Script from 'next/script'
+ 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,6 +22,11 @@ export default function RootLayout({
           {children}
         </div>
       </body>
+      <Script
+        async
+        src="https://umami-victor.vercel.app/script.js"
+        data-website-id="a7bcb790-3d79-478e-a7ed-3c46810fbb4f"
+       />
     </html>
   );
 }
