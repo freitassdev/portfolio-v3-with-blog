@@ -2,7 +2,8 @@ import Image from "next/image";
 import logo from '../../../../public/images/logo-resources/logo-light-192x192.png';
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-import { Linkedin } from "lucide-react";
+import { Github, Linkedin, Search } from "lucide-react";
+import { Input } from "@/components/ui/input";
 export default function Navbar({ active }: { active: string }) {
 
     return (
@@ -15,13 +16,10 @@ export default function Navbar({ active }: { active: string }) {
                 <div className="flex flex-row items-center gap-4"> {/* items desktop */}
                     <a href="#" className="text-lg text-primary transition-all duration-200 hover:text-primary/80 hover:border-b">Início</a>
                     <Separator className="h-[20px]" orientation="vertical" />
-                    <a href="#" className="text-lg text-primary transition-all duration-200 hover:text-primary/80 hover:border-b">Últimos Posts</a>
+                    <a href="#" className="text-lg text-primary transition-all duration-200 hover:text-primary/80 hover:border-b">Sobre Mim</a>
                     <Separator className="h-[20px]" orientation="vertical" />
                     <a href="#" className="text-lg text-primary transition-all duration-200 hover:text-primary/80 hover:border-b">Blog</a>
-                    <Button>Blog</Button>
-                </div>
-                <div className="flex flex-row items-center gap-4">
-                    <a href=""><Linkedin  /></a>
+                    <Input placeholder="Pesquisar artigo..." iconStyle="h-5 w-5" className="border-border/50" icon={Search}/>
                 </div>
             </div>
 

@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex flex-row justify-center w-full h-full  dark bg-background">
-        <div className="sm:w-full sm:mx-4 md:w-[600px] lg:w-[800px] xl:w-[1000px] 2xl:w-[1300px]">
+        <div className="max-sm:w-full max-sm:mx-4 md:w-[600px] lg:w-[800px] xl:w-[1000px] 2xl:w-[1300px]">
           {children}
         </div>
       </body>

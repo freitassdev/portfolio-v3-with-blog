@@ -28,7 +28,7 @@ export const Model: React.FC = () => {
   useFrame(() => {
     mesh.current.rotation.y += 0.01
     mesh.current.rotation.x += 0.02
-    // mesh.current.rotation.z += 0.01;
+    //mesh.current.rotation.z += 0.01;
   })
 
   useEffect(() => {
@@ -75,7 +75,7 @@ export const Model: React.FC = () => {
 
 export const ThreejsModel: React.FC = () => {
   return (
-    <div className="flex h-1/2 items-center justify-center">
+    <div className="flex w-full max-lg:h-full h-1/2 items-center justify-center">
       <Canvas
         camera={{ position: [3, 3, 3], fov: 30 }} // Adjust position for desired zoom level
       >
