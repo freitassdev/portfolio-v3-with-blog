@@ -24,7 +24,6 @@ export default function Navbar({ active }: { active: string }) {
     }, [navRef]);
     return (
         <>
-
             <nav className="fixed inset-x-0 top-4 z-40 md:mx-auto flex h-[60px] items-center justify-between rounded-xl border border-border bg-card px-2 shadow-sm saturate-100 backdrop-blur-[4px] transition-all duration-200 max-sm:mx-3 sm:mx-3 md:w-[600px] lg:w-[800px] xl:w-[1000px] 2xl:w-[1300px]" ref={navRef}>
                 <div className="flex flex-row gap-3 items-center">
                     <Image className="h-[40px] w-auto rounded-md" src={logo} alt="Logo" />
@@ -42,16 +41,16 @@ export default function Navbar({ active }: { active: string }) {
                     </div>
                 </div>
             </nav>
-            <div className={`md:hidden left-3 absolute top-24 ${isMobile ? "flex h-auto" : "hidden h-0"} shadow-sm saturate-100 backdrop-blur-[4px] bg-background/80 border border-border rounded-lg p-3 flex-col gap-5`}
+            <div className={`transition-all duration-200 md:hidden left-3 absolute top-24 ${isMobile ? "flex opacity-100" : "hidden opacity-0"} shadow-sm saturate-100 backdrop-blur-[10px] bg-background/90 border border-border rounded-lg p-3 flex-col gap-5`}
                 style={{
-                    width: submenuWidth
+                    width: submenuWidth,
                 }}>
                 <div className="flex flex-col justify-start items-center w-full gap-4">
-                    <a href="#" className="hidden max-md:block text-lg text-primary transition-all duration-200 hover:text-primary/80 hover:border-b">Início</a>
+                    <a href="#" className="hidden max-md:block text-lg text-primary transition-all duration-200 hover:text-primary/80">Início</a>
                     <Separator className="hidden max-md:block max-w-48" />
-                    <a href="#" className="hidden max-md:block text-lg text-primary transition-all duration-200 hover:text-primary/80 hover:border-b">Sobre Mim</a>
+                    <a href="#" className="hidden max-md:block text-lg text-primary transition-all duration-200 hover:text-primary/80">Sobre Mim</a>
                     <Separator className="hidden max-md:block max-w-48" />
-                    <a href="#" className="hidden max-md:block text-lg text-primary transition-all duration-200 hover:text-primary/80 hover:border-b">Blog</a>
+                    <a href="#" className="hidden max-md:block text-lg text-primary transition-all duration-200 hover:text-primary/80">Blog</a>
                 </div>
                 <div className="w-full">
                     <Input placeholder="Pesquisar artigo..." iconStyle="h-5 w-5 md:hidden" className="md:hidden border-border/50" icon={Search} />

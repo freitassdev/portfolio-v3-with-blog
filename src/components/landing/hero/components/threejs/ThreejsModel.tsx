@@ -33,7 +33,7 @@ export const Model: React.FC = () => {
 
   useEffect(() => {
     if (actions && actions.MorphBake) {
-      actions.MorphBake.timeScale = 0.5 // Set the animation speed to half
+      actions.MorphBake.timeScale = 0.5; // Set the animation speed to half
       // actions.MorphBake.repetitions = 1 // Prevent the animation
       // actions.MorphBake.clampWhenFinished = true // Prevent the animation
       actions.MorphBake.play()
@@ -52,7 +52,7 @@ export const Model: React.FC = () => {
 
   const handlePointerOver = () => {
     if (actions && actions.MorphBake) {
-      // actions.MorphBake.reset().play()
+      //actions.MorphBake.reset().play()
       actions.MorphBake.play()
     }
   }
@@ -66,7 +66,7 @@ export const Model: React.FC = () => {
   return (
     <mesh
       ref={mesh}
-      //  onPointerOver={handlePointerOver}
+        //onPointerOver={handlePointerOver}
     >
       <primitive object={scene} />
     </mesh>
