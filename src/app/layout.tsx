@@ -24,7 +24,7 @@ export default function RootLayout({
       </body>
       <Script
         async
-        src="https://umami-victor.vercel.app/script.js"
+        src="https://analytics.umami.is/script.js"
         data-website-id="a7bcb790-3d79-478e-a7ed-3c46810fbb4f"
         strategy="lazyOnload"
        />
