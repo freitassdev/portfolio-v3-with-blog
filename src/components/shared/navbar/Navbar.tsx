@@ -42,7 +42,7 @@ export default function Navbar({ active }: { active: string }) {
                     </div>
                 </div>
             </nav>
-            <div className={`md:hidden left-3 absolute bg-white top-24 ${isMobile ? "flex h-auto" : "hidden h-0"} shadow-sm saturate-100 backdrop-blur-[4px] bg-background/80 border border-border rounded-lg p-3 flex-col gap-5`}
+            <div className={`md:hidden left-3 absolute top-24 ${isMobile ? "flex h-auto" : "hidden h-0"} shadow-sm saturate-100 backdrop-blur-[4px] bg-background/80 border border-border rounded-lg p-3 flex-col gap-5`}
                 style={{
                     width: submenuWidth
                 }}>
