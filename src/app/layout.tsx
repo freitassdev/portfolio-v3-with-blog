@@ -24,8 +24,8 @@ export default function RootLayout({
       </body>
       <Script
         async
-        src="https://analytics.umami.is/script.js"
-        data-website-id="a7bcb790-3d79-478e-a7ed-3c46810fbb4f"
+        src="https://cloud.umami.is/script.js"
+        data-website-id={process.env.NEXT_PUBLIC_UMAMI_ID}
         strategy="lazyOnload"
        />
     </html>
