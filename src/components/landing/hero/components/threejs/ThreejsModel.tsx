@@ -6,7 +6,7 @@ import { OrbitControls } from '@react-three/drei'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { Environment } from '@react-three/drei'
 import { Material, Object3D, Object3DEventMap } from 'three'
-
+import { SparklesCore } from "@/components/ui/sparkles";
 import { Mesh } from 'three'
 import React, { Suspense } from 'react'
 // import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
@@ -66,7 +66,7 @@ export const Model: React.FC = () => {
   return (
     <mesh
       ref={mesh}
-        //onPointerOver={handlePointerOver}
+    //onPointerOver={handlePointerOver}
     >
       <primitive object={scene} />
     </mesh>
@@ -75,20 +75,27 @@ export const Model: React.FC = () => {
 
 export const ThreejsModel: React.FC = () => {
   return (
-    <div className="flex w-full max-lg:h-full h-1/2 items-center justify-center">
-      <Canvas
-        camera={{ position: [3, 3, 3], fov: 30 }} // Adjust position for desired zoom level
-      >
-        {/* <Canvas className='h-[46rem] w-96'> */}
-        <ambientLight intensity={1} />
-        <pointLight position={[10, 10, 10]} />
-        <Suspense fallback={null}>
-          <Model />
-        </Suspense>
-        <Environment preset="studio" />
-        {/* <OrbitControls enableZoom={true} /> */}
-        <OrbitControls enableZoom={false} target={[0, 0, 0]} />
-      </Canvas>
-    </div>
+    <>
+      <div className="flex w-full max-lg:h-full h-1/2 items-center justify-center relative">
+        <Canvas
+          camera={{ position: [3, 3, 3], fov: 30 }} // Adjust position for desired zoom level
+        >
+          {/* <Canvas className='h-[46rem] w-96'> */}
+          <ambientLight intensity={1} />
+          <pointLight position={[10, 10, 10]} />
+          <Suspense fallback={null}>
+            <Model />
+          </Suspense>
+          <Environment preset="studio" />
+          {/* <OrbitControls enableZoom={true} /> */}
+          <OrbitControls enableZoom={false} target={[0, 0, 0]} />
+        </Canvas>
+        <div className="absolute bottom-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+        <div className="absolute bottom-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
+        <div className="absolute bottom-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+        <div className="absolute bottom-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+      </div>
+    </>
+
   )
 }

@@ -31,11 +31,11 @@ export default function Navbar({ active }: { active: string }) {
                 </div>
                 <div className="flex flex-row items-center gap-4">
                     <div className="flex flex-row items-center gap-4"> {/* items desktop */}
-                        <a href="#" className="hidden md:block text-lg text-primary transition-all duration-200 hover:text-primary/80 hover:border-b">Início</a>
+                        <a href="#" className="hidden md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b">Início</a>
                         <Separator className="hidden md:block h-[20px]" orientation="vertical" />
-                        <a href="#" className="hidden md:block text-lg text-primary transition-all duration-200 hover:text-primary/80 hover:border-b">Sobre Mim</a>
+                        <a href="#" className="hidden md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b">Sobre Mim</a>
                         <Separator className="hidden md:block h-[20px]" orientation="vertical" />
-                        <a href="#" className="hidden md:block text-lg text-primary transition-all duration-200 hover:text-primary/80 hover:border-b">Blog</a>
+                        <a href="#" className="hidden md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b">Blog</a>
                         <Input placeholder="Pesquisar artigo..." iconStyle="h-5 w-5 max-md:hidden" className="max-md:hidden border-border/50" icon={Search} />
                         <Menu className="block md:hidden cursor-pointer" onClick={() => setIsMobile((prev) => !prev)} />
                     </div>
@@ -46,11 +46,11 @@ export default function Navbar({ active }: { active: string }) {
                     width: submenuWidth,
                 }}>
                 <div className="flex flex-col justify-start items-center w-full gap-4">
-                    <a href="#" className="hidden max-md:block text-lg text-primary transition-all duration-200 hover:text-primary/80">Início</a>
+                    <a href="#" className="hidden max-md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80">Início</a>
                     <Separator className="hidden max-md:block max-w-48" />
-                    <a href="#" className="hidden max-md:block text-lg text-primary transition-all duration-200 hover:text-primary/80">Sobre Mim</a>
+                    <a href="#" className="hidden max-md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80">Sobre Mim</a>
                     <Separator className="hidden max-md:block max-w-48" />
-                    <a href="#" className="hidden max-md:block text-lg text-primary transition-all duration-200 hover:text-primary/80">Blog</a>
+                    <a href="#" className="hidden max-md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80">Blog</a>
                 </div>
                 <div className="w-full">
                     <Input placeholder="Pesquisar artigo..." iconStyle="h-5 w-5 md:hidden" className="md:hidden border-border/50" icon={Search} />
