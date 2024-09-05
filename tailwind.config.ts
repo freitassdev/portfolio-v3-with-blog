@@ -31,6 +31,8 @@ const config: Config = {
       },
       animation: {
         "meteor-effect": "meteor 5s linear infinite",
+        scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -88,6 +90,11 @@ const config: Config = {
       "accordion-up": {
         from: { height: "var(--radix-accordion-content-height)" },
         to: { height: "0" },
+      },
+      scroll: {
+        to: {
+          transform: "translate(calc(-50% - 0.5rem))",
+        },
       },
     },
     animation: {
