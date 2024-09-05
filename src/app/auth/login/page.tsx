@@ -3,7 +3,6 @@ import Image from "next/image"
 import Link from "next/link"
 
 import LoginForm from "@/components/auth/login-form/login-form"
-import { Meteors } from "@/components/shared/meteors/meteors"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
@@ -17,7 +16,6 @@ export default function LoginPage() {
     <>
       <div className="flex flex-row w-full h-screen">
         <div className="flex flex-col w-1/2 h-full bg-muted/60">
-        <Meteors number={50} />
         </div>
         <div className="w-1/2 h-full">
 
