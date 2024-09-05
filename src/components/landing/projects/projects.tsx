@@ -51,7 +51,7 @@ export default function ProjectsSection() {
     return (
         <div className="flex flex-col max-w-full mx-auto w-full h-full items-start justify-start">
             <h1 className="text-4xl font-semibold text-primary">
-                Explore minha jornada em <br />
+                Explore minha jornada com<br />
                 <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
                     Projetos Web
                 </span>

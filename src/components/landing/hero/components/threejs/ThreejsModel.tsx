@@ -6,7 +6,6 @@ import { OrbitControls } from '@react-three/drei'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { Environment } from '@react-three/drei'
 import { Material, Object3D, Object3DEventMap } from 'three'
-import { SparklesCore } from "@/components/ui/sparkles";
 import { Mesh } from 'three'
 import React, { Suspense } from 'react'
 // import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
