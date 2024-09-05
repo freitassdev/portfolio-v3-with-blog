@@ -117,7 +117,7 @@
   }
 }
 
-body::before {
+.hero::before {
   content: "";
   position: absolute;
   top: 0;

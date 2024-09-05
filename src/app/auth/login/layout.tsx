@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../../globals.css";
 import Script from 'next/script'
  
 const inter = Inter({ subsets: ["latin"] });
@@ -17,16 +17,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex flex-row justify-center w-full h-full dark bg-background">
-        
+      <body className="flex flex-row justify-center w-full h-full  dark bg-background">
           {children}
+      </body>
       <Script
         defer
         src="https://cloud.umami.is/script.js"
         data-website-id={process.env.NEXT_PUBLIC_UMAMI_ID}
         strategy="lazyOnload"
        />
-      </body>
     </html>
   );
 }
