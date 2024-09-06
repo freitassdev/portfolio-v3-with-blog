@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ThreejsModel } from "@/components/landing/hero/components/threejs/ThreejsModel";
 import Navbar from '../components/shared/navbar/Navbar';
 import HeroSection from '../components/landing/hero/hero';
 import ProjectsSection from '../components/landing/projects/projects';
