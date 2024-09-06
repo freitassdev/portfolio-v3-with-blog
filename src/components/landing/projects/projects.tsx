@@ -5,6 +5,7 @@ import { Tabs } from "@/components/ui/tabs";
 import CardContent from "./components/card-content";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import MovingLine from "@/components/ui/moving-line";
+import BoxReveal from "@/components/magicui/box-reveal";
 
 export default function ProjectsSection() {
     const tabs = [
@@ -54,12 +55,14 @@ export default function ProjectsSection() {
         <>
             <div className="flex flex-col max-w-full mx-auto w-full h-full items-start justify-start mt-20">
                 <div className="flex flex-row gap-2 justify-between">
-                    <h1 className="max-sm:text-xl text-4xl font-semibold text-primary">
-                        Explore minha jornada com<br />
-                        <span className="max-sm:text-5xl text-4xl md:text-[6rem] font-bold mt-1 leading-none whitespace-nowrap">
-                            Projetos Web
-                        </span>
-                    </h1>
+                    <BoxReveal boxColor={"#89cff0"} duration={0.5}>
+                        <h1 className="max-sm:text-xl text-4xl font-semibold text-primary">
+                            Explore minha jornada com<br />
+                            <span className="max-sm:text-5xl text-4xl md:text-[6rem] font-bold mt-1 leading-none whitespace-nowrap">
+                                Projetos Web
+                            </span>
+                        </h1>
+                    </BoxReveal>
                 </div>
                 <div className="h-[20rem] md:h-[45rem] [perspective:1200px] relative b flex flex-col max-w-full mx-auto w-full  items-start justify-start my-4">
                     <Tabs tabs={tabs} />
