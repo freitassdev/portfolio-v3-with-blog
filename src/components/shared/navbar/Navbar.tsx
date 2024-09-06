@@ -17,14 +17,16 @@ export default function Navbar({ active }: { active: string }) {
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
     useEffect(() => {
-        if (navRef.current) {
-            setSubmenuWidth(navRef.current.getBoundingClientRect().width);
-        }
-        window.addEventListener("resize", () => {
+        setTimeout(() => {
             if (navRef.current) {
                 setSubmenuWidth(navRef.current.getBoundingClientRect().width);
             }
-        });
+            window.addEventListener("resize", () => {
+                if (navRef.current) {
+                    setSubmenuWidth(navRef.current.getBoundingClientRect().width);
+                }
+            });
+        }) 
     }, []);
 
     scrollYProgress.on('change', (latest) => {
