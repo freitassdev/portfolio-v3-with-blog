@@ -7,10 +7,14 @@ import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Search, Menu } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useRef, useState, useEffect } from "react";
+import { useScroll } from "framer-motion";
+import { cn } from "@/lib/utils";
 export default function Navbar({ active }: { active: string }) {
     const [isMobile, setIsMobile] = useState<boolean>(false);
     const [submenuWidth, setSubmenuWidth] = useState<number>(0);
     const navRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress} = useScroll();
+    const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
     useEffect(() => {
         if (navRef.current) {
@@ -22,9 +26,19 @@ export default function Navbar({ active }: { active: string }) {
             }
         });
     }, [navRef]);
+
+    scrollYProgress.on('change', (latest) => {
+        console.log(latest)
+        if(latest > 0) {
+            setIsScrolled(true);
+        } else {
+            setIsScrolled(false);
+        }
+    });
+
     return (
         <>
-            <nav className="fixed inset-x-0 top-4 z-40 md:mx-auto flex h-[60px] items-center justify-between rounded-xl border border-border bg-card px-2 shadow-sm saturate-100 backdrop-blur-[4px] transition-all duration-200 max-sm:mx-3 sm:mx-3 md:w-[600px] lg:w-[800px] xl:w-[1000px] 2xl:w-[1300px]" ref={navRef}>
+            <nav className={cn("fixed inset-x-0 top-4 z-40 md:mx-auto flex h-[60px] items-center justify-between rounded-xl border px-2 shadow-sm saturate-100 backdrop-blur-[4px] transition-all duration-200 max-sm:mx-3 sm:mx-3 md:w-[600px] lg:w-[800px] xl:w-[1000px] 2xl:w-[1300px]", isScrolled ? "bg-background/70" : "bg-card border-border")} ref={navRef}>
                 <div className="flex flex-row gap-3 items-center">
                     <Image className="h-[40px] w-auto rounded-md" src={logo} alt="Logo" />
                     <a href="/" className="text-xl font-bold text-primary">michelfreitas</a>
