@@ -25,7 +25,7 @@ export default function Navbar({ active }: { active: string }) {
                 setSubmenuWidth(navRef.current.getBoundingClientRect().width);
             }
         });
-    }, [navRef]);
+    }, []);
 
     scrollYProgress.on('change', (latest) => {
         console.log(latest)
