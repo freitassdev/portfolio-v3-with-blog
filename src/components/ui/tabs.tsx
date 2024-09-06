@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import BoxReveal from "@/components/magicui/box-reveal";
 
 type Tab = {
   title: string;
@@ -38,6 +39,7 @@ export const Tabs = ({
 
   return (
     <>
+    <BoxReveal boxColor={"#89cff0"} duration={0.5}>
       <div
         className={cn(
           "flex flex-row items-center justify-start [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full",
@@ -74,6 +76,7 @@ export const Tabs = ({
           </button>
         ))}
       </div>
+      </BoxReveal>
       <FadeInDiv
         tabs={tabs}
         active={active}
