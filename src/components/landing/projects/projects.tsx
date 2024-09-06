@@ -65,17 +65,17 @@ export default function ProjectsSection() {
                     <Tabs tabs={tabs} />
                 </div>
             </div>
-            {/* <InfiniteMovingCards
+            <InfiniteMovingCards
                 className="my-10"
-                items={testimonials.sort(() => Math.random() - 0.5)}
+                items={itens}
                 direction="right"
                 speed="slow"
-            /> */}
+            />
         </>
     );
 }
 
-const testimonials = [
+const itens = [
     {
         title: "Dart",
         icon: "https://raw.githubusercontent.com/github/explore/main/topics/dart/dart.png"
