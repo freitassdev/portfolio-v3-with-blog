@@ -54,9 +54,9 @@ export default function ProjectsSection() {
         <>
             <div className="flex flex-col max-w-full mx-auto w-full h-full items-start justify-start mt-20">
                 <div className="flex flex-row gap-2 justify-between">
-                    <h1 className="text-4xl font-semibold text-primary">
+                    <h1 className="max-sm:text-xl text-4xl font-semibold text-primary">
                         Explore minha jornada com<br />
-                        <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none whitespace-nowrap">
+                        <span className="max-sm:text-5xl text-4xl md:text-[6rem] font-bold mt-1 leading-none whitespace-nowrap">
                             Projetos Web
                         </span>
                     </h1>
