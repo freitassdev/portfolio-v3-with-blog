@@ -6,7 +6,7 @@ import { AuthOptions } from "next-auth";
 
 const prisma = new PrismaClient();
 
-export const authOptions: AuthOptions = {
+const authOptions: AuthOptions = {
   session: {
     strategy: "jwt",
   },
@@ -28,8 +28,6 @@ export const authOptions: AuthOptions = {
           },
         });
 
-        console.log("user found", user);
-
         if (!user) {
           return null;
         }
@@ -44,6 +42,7 @@ export const authOptions: AuthOptions = {
         }
 
         return {
+          fullName: user.fullName,
           id: user.id,
           email: user.email,
           username: user.username,
@@ -56,7 +55,6 @@ export const authOptions: AuthOptions = {
 
   callbacks: {
     async session({ session, token }) {
-      console.log("session token", token);
       return {
         ...session,
         user: {
@@ -80,6 +78,7 @@ export const authOptions: AuthOptions = {
           email: user.email,
           username: user.username,
           role: user.role,
+          fullName: user.fullName,
           permissions: user?.permissions,
         };
       }
@@ -91,7 +90,7 @@ export const authOptions: AuthOptions = {
     signIn: "/auth/login",
   },
 
-  debug: process.env.NODE_ENV === "development",
+  debug: false, //process.env.NODE_ENV === "development",
   jwt: {
     secret: process.env.NEXTAUTH_JWT_SECRET,
   },
