@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import NextAuth from "next-auth/next";
 import CredentialsProvider, { CredentialInput } from "next-auth/providers/credentials";
-import { compare } from "bcrypt";
+import { compare } from "bcryptjs";
 import { AuthOptions } from "next-auth";
 
 const prisma = new PrismaClient();
@@ -88,7 +88,7 @@ export const authOptions: AuthOptions = {
   },
 
   pages: {
-    signIn: "/login",
+    signIn: "/auth/login",
   },
 
   debug: process.env.NODE_ENV === "development",

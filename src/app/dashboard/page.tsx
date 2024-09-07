@@ -1,8 +1,15 @@
+'use client';
+
 import Navbar from '@/components/shared/navbar/Navbar';
 import { Spotlight } from "@/components/ui/spotlight";
 import { Separator } from "@radix-ui/react-separator";
+import { useEffect } from 'react';
+import { signOut } from "next-auth/react";
 
 export default function Blog() {
+  // useEffect(() => {
+  //   signOut()
+  // }, [])
   return (
 
     <div className="h-screen w-full bg-background relative flex items-center justify-center">

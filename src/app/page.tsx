@@ -1,9 +1,9 @@
-import Image from "next/image";
-import Navbar from '../components/shared/navbar/Navbar';
-import HeroSection from '../components/landing/hero/hero';
-import ProjectsSection from '../components/landing/projects/projects';
+import Navbar from '@/components/shared/navbar/Navbar';
+import HeroSection from '@/components/landing/hero/hero';
+import ProjectsSection from '@/components/landing/projects/projects';
 import { Spotlight } from "@/components/ui/spotlight";
 import { Separator } from "@radix-ui/react-separator";
+
 export default function Home() {
   return (
 
