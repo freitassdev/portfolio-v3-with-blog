@@ -1,3 +1,4 @@
+import { Session } from "next-auth";
 import { z, ZodType } from "zod";
 
 export interface zodUserType {
@@ -23,3 +24,4 @@ export const UserSchema: ZodType<zodUserType> = z.object({
     .min(8, { message: "A senha deve possuir pelo menos 8 caractéres." })
     .max(30, { message: "Senha muito longa" }),
 });
+

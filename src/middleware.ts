@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { decode, getToken } from "next-auth/jwt";
+import {  getToken } from "next-auth/jwt";
 
 const publicPages = ["/", "/images/*", "/spheron.glb"];
 const authPages = ["/auth/*"];
@@ -48,7 +48,7 @@ export async function middleware(req: NextRequest) {
       return NextResponse.next();
     }
 
-    const url = new URL(`/?from=${encodeURIComponent(pathname)}`, origin);
+    const url = new URL(`/`, origin);
     return NextResponse.redirect(url);
   }
 }

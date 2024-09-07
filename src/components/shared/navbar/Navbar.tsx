@@ -2,19 +2,55 @@
 
 import Image from "next/image";
 import logo from '../../../../public/images/logo-resources/logo-light-192x192.png';
+
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Search, Menu } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
+import { Search, Menu } from "lucide-react";
+
 import { useRef, useState, useEffect } from "react";
 import { useScroll } from "framer-motion";
+import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { zodUserType } from '../../../zod/types';
+
 export default function Navbar({ active }: { active: string }) {
     const [isMobile, setIsMobile] = useState<boolean>(false);
     const [submenuWidth, setSubmenuWidth] = useState<number>(0);
-    const navRef = useRef<HTMLDivElement>(null);
-    const { scrollYProgress} = useScroll();
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
+    const [nameAbrev, setNameAbrev] = useState<string>("");
+    const { scrollYProgress } = useScroll();
+    const { data: session , status } = useSession();
+    const router = useRouter();
+    const navRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if(session && session.user) {
+            const name = session.user.fullName;
+            const nameAbreviation = name.split(" ").map((n) => n[0]).join("").substring(0, 2);
+            setNameAbrev(nameAbreviation);
+        }
+    }, [session])
+
+    const UserMenu = ({ className }: { className: string }) => {
+        if (status === "authenticated") {
+            return (
+                <div className={cn("flex flex-row items-center gap-3", className)}>
+                    <Avatar>
+                        {/* <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" /> */}
+                        <AvatarFallback>{nameAbrev}</AvatarFallback>
+                    </Avatar>
+                </div>
+            )
+        }
+        return (
+            <div className={cn("flex flex-row items-center gap-4", className)}>
+                <Button className="text-sm" onClick={() => router.push("/auth/login")}>Fazer Login</Button>
+            </div>
+        )
+    }
 
     useEffect(() => {
         setTimeout(() => {
@@ -26,12 +62,12 @@ export default function Navbar({ active }: { active: string }) {
                     setSubmenuWidth(navRef.current.getBoundingClientRect().width);
                 }
             });
-        }) 
+        })
     }, []);
 
     scrollYProgress.on('change', (latest) => {
         console.log(latest)
-        if(latest > 0) {
+        if (latest > 0) {
             setIsScrolled(true);
         } else {
             setIsScrolled(false);
@@ -52,7 +88,11 @@ export default function Navbar({ active }: { active: string }) {
                         <a href="#" className={cn("hidden md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b", active === "about-me" ? "text-primary hover:text-primary/80" : "")}>Sobre Mim</a>
                         <Separator className="hidden md:block h-[20px]" orientation="vertical" />
                         <a href="#" className={cn("hidden md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b", active === "blog" ? "text-primary hover:text-primary/80" : "")}>Blog</a>
-                        <Input placeholder="Pesquisar artigo..." iconStyle="h-5 w-5 max-md:hidden" className="max-md:hidden border-border/50" icon={Search} />
+                        <div className="flex flex-row gap-2 items-center">
+                            <Input placeholder="Pesquisar artigo..." iconStyle="h-5 w-5 max-md:hidden" className="max-md:hidden border-border/50" icon={Search} />
+                            <UserMenu className="max-md:hidden" />
+                        </div>
+
                         <Menu className="block md:hidden cursor-pointer" onClick={() => setIsMobile((prev) => !prev)} />
                     </div>
                 </div>
@@ -70,6 +110,7 @@ export default function Navbar({ active }: { active: string }) {
                 </div>
                 <div className="w-full">
                     <Input placeholder="Pesquisar artigo..." iconStyle="h-5 w-5 md:hidden" className="md:hidden border-border/50" icon={Search} />
+                    <UserMenu className="md:hidden" />
                 </div>
             </div>
         </>

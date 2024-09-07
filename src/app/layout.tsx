@@ -3,7 +3,7 @@ import "./globals.css";
 import Script from 'next/script'
 import { ThemeProvider } from "@/components/shared/theme-toggle/provider/theme-provider";
 import { Toaster } from "react-hot-toast";
-import { SessionProvider } from 'next-auth/react'
+import AuthProvider from "@/components/shared/auth-provider/auth-provider";
 import { metadataobj } from '@/constants/metadata';
 
 export const metadata: Metadata = metadataobj;
@@ -14,17 +14,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-
   return (
     <html lang="pt-br" suppressHydrationWarning>
       <body className="flex flex-row justify-center w-full h-full dark bg-background">
-
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Toaster toastOptions={{
             className: '!bg-muted !text-primary',
           }} />
-
-          {children}
+          <AuthProvider>
+            {children}
+          </AuthProvider>
           <Script
             defer
             src="https://cloud.umami.is/script.js"
