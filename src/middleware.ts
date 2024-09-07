@@ -1,6 +1,6 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
-import jwt from 'jsonwebtoken';
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { decode, getToken } from "next-auth/jwt";
 
 const publicPages = ["/", "/images/*", "/spheron.glb"];
 const authPages = ["/auth/*"];
@@ -32,33 +32,24 @@ export async function middleware(req: NextRequest) {
   const isAuthPage = testPagesRegex(authPages, pathname);
   const isProtectedPage = testPagesRegex(protectedPages, pathname);
 
-  let token = req.cookies.get("next-auth.session-token")?.value.trim();
-  try {
-    if (token) {
-      jwt.verify(token, process.env.NEXTAUTH_SECRET as string);
-
-      if (isAuthPage) {
-        const url = new URL("/", origin);
-        return NextResponse.redirect(url);
-      }
-
-      return NextResponse.next();
-    } else {
-      if (isPublicPage || isAuthPage) {
-        return NextResponse.next();
-      }
-
-      const url = new URL(`/?from=${encodeURIComponent(pathname)}`, origin);
-      return NextResponse.redirect(url);
-    }
-  } catch (error) {
-    console.log("Invalid JWT token", error);
-    if (!isPublicPage && !isAuthPage) {
-      const url = new URL(`/?from=${encodeURIComponent(pathname)}`, origin);
+  // const token = req.cookies.get("next-auth.session-token")?.value.trim();
+  const secret = process.env.NEXTAUTH_JWT_SECRET;
+  const token = await getToken({ req, secret });
+  
+  if (token) {
+    if (isAuthPage) {
+      const url = new URL("/", origin);
       return NextResponse.redirect(url);
     }
 
     return NextResponse.next();
+  } else {
+    if (isPublicPage || isAuthPage) {
+      return NextResponse.next();
+    }
+
+    const url = new URL(`/?from=${encodeURIComponent(pathname)}`, origin);
+    return NextResponse.redirect(url);
   }
 }
 

@@ -29,7 +29,6 @@
     "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
     "framer-motion": "^11.5.4",
-    "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.438.0",
     "mini-svg-data-uri": "^1.4.4",
     "next": "14.2.7",
@@ -51,6 +50,7 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.7",
+    "node-jose-tools": "^2.0.4",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
