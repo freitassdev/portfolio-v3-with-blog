@@ -16,7 +16,7 @@ export default function RootLayout({
 
 
   return (
-    <html lang="pt-br">
+    <html lang="pt-br" suppressHydrationWarning>
       <body className="flex flex-row justify-center w-full h-full dark bg-background">
 
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
