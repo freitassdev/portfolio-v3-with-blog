@@ -1,6 +1,5 @@
 "use client";
 
-import { BackgroundBeams } from "@/components/ui/background-beams";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -9,6 +8,7 @@ import { CustomInput } from "@/components/ui/custom-input";
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { UserLoginSchema, zodUserLoginType } from '../../../zod/types';
+import { BackgroundBeams } from "@/components/ui/background-beams";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useRef, useState } from "react";
 import { toast } from 'react-hot-toast';
@@ -48,7 +48,7 @@ export default function LoginPage() {
             setLoading(false);
             return toast.error("Email ou senha incorretos!");
         }
-        
+
         setLoading(false);
         return router.replace('/'); //caso tenha algum erro
     }
