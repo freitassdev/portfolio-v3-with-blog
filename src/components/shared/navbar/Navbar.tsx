@@ -4,53 +4,21 @@ import Image from "next/image";
 import logo from '../../../../public/images/logo-resources/logo-light-192x192.png';
 
 import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import { Search, Menu } from "lucide-react";
 
 import { useRef, useState, useEffect } from "react";
 import { useScroll } from "framer-motion";
-import { useSession, signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import UserMenu from "./components/user-menu";
 import { cn } from "@/lib/utils";
-import { zodUserType } from '../../../zod/types';
+
 
 export default function Navbar({ active }: { active: string }) {
     const [isMobile, setIsMobile] = useState<boolean>(false);
     const [submenuWidth, setSubmenuWidth] = useState<number>(0);
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
-    const [nameAbrev, setNameAbrev] = useState<string>("");
     const { scrollYProgress } = useScroll();
-    const { data: session , status } = useSession();
-    const router = useRouter();
     const navRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        if(session && session.user) {
-            const name = session.user.fullName;
-            const nameAbreviation = name.split(" ").map((n) => n[0]).join("").substring(0, 2);
-            setNameAbrev(nameAbreviation);
-        }
-    }, [session])
-
-    const UserMenu = ({ className }: { className: string }) => {
-        if (status === "authenticated") {
-            return (
-                <div className={cn("flex flex-row items-center gap-3", className)}>
-                    <Avatar>
-                        {/* <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" /> */}
-                        <AvatarFallback>{nameAbrev}</AvatarFallback>
-                    </Avatar>
-                </div>
-            )
-        }
-        return (
-            <div className={cn("flex flex-row items-center gap-4", className)}>
-                <Button className="text-sm" onClick={() => router.push("/auth/login")}>Fazer Login</Button>
-            </div>
-        )
-    }
 
     useEffect(() => {
         setTimeout(() => {

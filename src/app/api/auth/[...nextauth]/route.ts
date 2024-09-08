@@ -64,13 +64,13 @@ const authOptions: AuthOptions = {
           username: token.username,
           role: token.role,
           permissions: token?.permissions,
+          fullName: token.fullName,
         },
       };
     },
 
     async jwt({ token, user }: any) {
       // after login jwt token and get the user data from here
-
       if (user) {
         return {
           ...token,

@@ -1,9 +1,12 @@
 import { Session } from "next-auth";
 import { z, ZodType } from "zod";
 
-export interface zodUserType {
+export interface zodUserType extends zodUserLoginType {
     fullName: string;
     username: string;
+}
+
+export interface zodUserLoginType {
     email: string;
     password: string;
 }
@@ -25,3 +28,9 @@ export const UserSchema: ZodType<zodUserType> = z.object({
     .max(30, { message: "Senha muito longa" }),
 });
 
+export const UserLoginSchema: ZodType<zodUserLoginType> = z.object({
+  email: z.string().email({
+    message: "Email inválido",
+  }),
+  password: z.string().min(8, { message: "Senha muito curta" }),
+});

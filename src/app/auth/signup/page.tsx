@@ -2,9 +2,8 @@
 
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { FieldError, FieldErrors, Message, useForm } from "react-hook-form"
+import { FieldErrors, useForm } from "react-hook-form"
 import { CustomInput } from "@/components/ui/custom-input";
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
