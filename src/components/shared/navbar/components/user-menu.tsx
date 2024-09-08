@@ -12,6 +12,9 @@ import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { LogOut, MessageCircleCode, MessageCircleHeart, MessageCirclePlus, User, UserPen } from "lucide-react";
+import { Label } from '@/components/ui/label';
 
 export default function UserMenu({ className }: { className?: string }) {
     const [nameAbrev, setNameAbrev] = useState<string>("");
@@ -45,14 +48,53 @@ export default function UserMenu({ className }: { className?: string }) {
                                 <AvatarFallback>{nameAbrev.toUpperCase()}</AvatarFallback>
                             </Avatar>
                             <div className="flex flex-col justify-center gap-1 h-full">
-                                <h4 className="text-primary font-medium leading-none">{session.user.fullName}</h4>
+                                <h4 className="text-primary font-medium leading-none">{session.user.fullName}
+                                    <span className="text-muted-foreground">
+                                        {session.user.role !== "USER" && " -" + session.user.role.toLocaleLowerCase()}
+                                    </span>
+                                </h4>
                                 <p className="text-sm text-foreground">
                                     @{session?.user?.username}
                                 </p>
                             </div>
                         </div>
-                        <div className="grid gap-2">
-                            teste
+                        <div className="flex flex-col items-center gap-4 w-full">
+                            <Separator />
+                            <div className="flex flex-col gap-2 w-full">
+                                <Label>Sua conta</Label>
+                                <Button className="text-sm w-full bg-muted hover:bg-muted-foreground/30 text-primary justify-between gap-2">
+                                    Meu Perfil
+                                    <User className="h-5" />
+                                </Button>
+                                <Button className="text-sm w-full bg-muted hover:bg-muted-foreground/30 text-primary justify-between gap-2">
+                                    Editar Conta
+                                    <UserPen className="h-5" />
+                                </Button>
+                            </div>
+                            <div className="flex flex-col gap-2 w-full">
+                                <Label>Posts</Label>
+                                <Button className="text-sm w-full bg-muted hover:bg-muted-foreground/30 text-primary justify-between gap-2">
+                                    Novo Post
+                                    <MessageCirclePlus className="h-5" />
+                                </Button>
+                                <Button className="text-sm w-full bg-muted hover:bg-muted-foreground/30 text-primary justify-between gap-2">
+                                    Meus Posts
+                                    <MessageCircleCode className="h-5" />
+                                </Button>
+                                <Button className="text-sm w-full bg-muted hover:bg-muted-foreground/30 text-primary justify-between gap-2">
+                                    Posts Salvos
+                                    <MessageCircleHeart className="h-5" />
+                                </Button>
+                            </div>
+                            <div className="flex flex-col gap-2 w-full">
+                                <Label>Outros</Label>
+                                <Button
+                                    className="text-sm w-full bg-muted hover:bg-muted-foreground/30 text-primary justify-between gap-2"
+                                    onClick={() => signOut({ redirect: true })}>
+                                    Sair
+                                    <LogOut className="h-5" />
+                                </Button>
+                            </div>
                         </div>
                     </div>
                 </PopoverContent>
