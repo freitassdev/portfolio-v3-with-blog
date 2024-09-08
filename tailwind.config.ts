@@ -31,6 +31,14 @@ const config: Config = {
             opacity: "0",
           },
         },
+        blink: {
+          from: {
+            'border-right-color': 'transparent'
+          },
+          to: {
+            'border-right-color': 'black'
+          },
+        },
       },
       animation: {
         "meteor-effect": "meteor 5s linear infinite",
@@ -39,6 +47,7 @@ const config: Config = {
         grid: "grid 15s linear infinite",
         spotlight: "spotlight 2s ease .75s 1 forwards",
         aurora: "aurora 60s linear infinite",
+        blinking: 'blink 1s infinite',
       },
       borderRadius: {
         lg: "var(--radius)",

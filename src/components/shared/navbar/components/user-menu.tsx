@@ -73,7 +73,9 @@ export default function UserMenu({ className }: { className?: string }) {
                             </div>
                             <div className="flex flex-col gap-2 w-full">
                                 <Label>Posts</Label>
-                                <Button className="text-sm w-full bg-muted hover:bg-muted-foreground/30 text-primary justify-between gap-2">
+                                <Button
+                                    className="text-sm w-full bg-muted hover:bg-muted-foreground/30 text-primary justify-between gap-2"
+                                    onClick={() => router.push('/blog/new/post')}>
                                     Novo Post
                                     <MessageCirclePlus className="h-5" />
                                 </Button>
