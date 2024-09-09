@@ -1,18 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Este é o meu portfólio pessoal com um blog integrado, escrito em Next.js, no backend e no frontend.
 
-## Getting Started
+[Live Preview](https://michelfreitas.com)
 
-First, run the development server:
+## Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Este projeto inclui diversas funcionalidades, como:
+
+ - Landing page (para o portfolio)
+ - Autenticação de Usuários
+ - Blog integrado
+ - Sistema de usuários moderadores e administradores 
+ - Editor de texto (para escrever os posts) fácil e intuitivo
+e muito mais.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
