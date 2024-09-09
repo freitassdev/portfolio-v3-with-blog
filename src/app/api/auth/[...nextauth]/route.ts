@@ -6,7 +6,7 @@ import { AuthOptions } from "next-auth";
 
 const prisma = new PrismaClient();
 
-const authOptions: AuthOptions = {
+export const authOptions: AuthOptions = {
   session: {
     strategy: "jwt",
   },

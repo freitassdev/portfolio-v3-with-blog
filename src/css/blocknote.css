@@ -1,3 +1,6 @@
+@tailwind utilities;
+@tailwind base;
+
 .bn-container[data-theming-css-variables-demo][data-color-scheme] {
   --bn-colors-editor-text: hsl(var(--foreground));
   --bn-colors-editor-background: transparent;
@@ -24,4 +27,9 @@
   --bn-colors-editor-text: #ffffff;
   --bn-colors-editor-background: hsl(var(--card));
   --bn-colors-side-menu: #ffffff;
+}
+
+
+.bn-editor {
+ @apply py-4;
 }

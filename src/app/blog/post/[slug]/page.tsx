@@ -1,9 +1,6 @@
 'use client';
 
 import Navbar from '@/components/shared/navbar/Navbar';
-import { Spotlight } from "@/components/ui/spotlight";
-import { Separator } from "@radix-ui/react-separator";
-import { useEffect } from 'react';
 
 export default function NewPostPage() {
 

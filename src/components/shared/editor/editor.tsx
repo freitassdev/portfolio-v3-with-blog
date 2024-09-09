@@ -1,5 +1,5 @@
 'use client';
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import "@blocknote/core/fonts/inter.css";
 import { useCreateBlockNote } from "@blocknote/react";
 import { BlockNoteView } from "@blocknote/mantine";
@@ -58,6 +58,10 @@ const Editor: React.FC<IEditorProps> = React.memo(({ updateHtmlRef }) => {
         const html = await editor.blocksToHTMLLossy(editor.document);
         updateHtmlRef.current?.(html);
     }, [editor, updateHtmlRef]);
+
+    useEffect(() => {
+        console.log("renderizado")
+    }, [])
 
     return (
         <BlockNoteView
