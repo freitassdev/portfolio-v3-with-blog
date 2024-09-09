@@ -40,7 +40,7 @@ export default function UserMenu({ className }: { className?: string }) {
                         </Avatar>
                     </div>
                 </PopoverTrigger>
-                <PopoverContent className="w-80">
+                <PopoverContent className="w-80 border-border">
                     <div className="grid gap-4">
                         <div className="flex flex-row gap-3 items-center ">
                             <Avatar className="cursor-pointer w-12 h-12">

@@ -10,7 +10,7 @@ export default function App() {
             <div className="h-full max-md:w-full max-md:px-4 md:w-[600px] lg:w-[700px] xl:w-[700px] 2xl:w-[900px]">
                 <Navbar active="blog" />
                 <div className="flex flex-col mt-24">
-                    <Editor />
+                    <Editor /> 
                 </div>
             </div>
         </div>

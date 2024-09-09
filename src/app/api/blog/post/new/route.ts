@@ -84,7 +84,22 @@ export async function POST(req: NextRequest, res: NextResponse) {
       );
     }
 
-    return NextResponse.json({ message: "Post created" }, { status: 201 });
+    return NextResponse.json(
+      {
+        message: "Post created",
+        data: {
+          title,
+          content,
+          imageUrl,
+          simpleDescription,
+          tags,
+          authorId: session.user.id,
+          authorName: session.user.fullName,
+          slug,
+        },
+      },
+      { status: 201 }
+    );
   } catch (error) {
     console.log("Error while creating post", error);
     return NextResponse.json(

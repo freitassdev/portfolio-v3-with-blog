@@ -3,7 +3,7 @@ export interface TUser {
   username: string;
   email: string;
   password: string;
-  role: Role; 
+  role: Role;
   interestedTopics: string[];
   permissions: string[];
   createdAt: Date;
@@ -19,7 +19,7 @@ export interface TComment {
   author?: TUser;
   text: string;
   postId: string;
-  post?: TPost; 
+  post?: TPost;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -40,11 +40,11 @@ export interface TPost {
 }
 
 export interface TRequestNewPost {
-    title: string;
-    content: string;
-    imageUrl?: string;
-    simpleDescription?: string;
-    tags: string[];
+  title: string;
+  content: string;
+  imageUrl?: string;
+  simpleDescription?: string;
+  tags: string[];
 }
 
 export interface TRequestGetPost {
@@ -52,8 +52,23 @@ export interface TRequestGetPost {
   slug?: string;
 }
 
+export interface TResponseGetPost {
+  id: string;
+  title: string;
+  content: string;
+  authorId: string;
+  authorName: string;
+  imageUrl: string | null;
+  simpleDescription: string;
+  slug: string;
+  createdAt: Date;
+  updatedAt: Date;
+  likes: number;
+  tags: string[];
+}
+
 export enum Role {
-  USER = 'USER',
-  ADMIN = 'ADMIN',
-    MODERATOR = 'MODERATOR',
+  USER = "USER",
+  ADMIN = "ADMIN",
+  MODERATOR = "MODERATOR",
 }
