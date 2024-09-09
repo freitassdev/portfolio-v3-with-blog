@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-  
+
 @layer base {
   :root {
     --background: 204 70% 98%;
@@ -27,93 +27,40 @@
     --ring: 204 77% 47%;
     --radius: 0.5rem;
   }
-  
-    .dark {
-      --background: 240 13.73% 10%;
-      --foreground: 229.76 31.78% 74.71%;
-      --muted: 232.5 15.44% 18.32%;
-      --muted-foreground: 233.79 11.37% 50%;
-      --popover: 234.55 17.46% 12.35%;
-      --popover-foreground: 234 12.4% 52.55%;
-      --card: 234.55 17.46% 12.35%;
-      --card-foreground: 229.76 31.78% 74.71%;
-      --border: 232.5 15.38% 30.59%;
-      --input: 232 20% 14.71%;
-      --primary: 207.43 68.63% 90%;
-      --primary-foreground: 0 0% 20%;
-      --secondary: 225.45 71.22% 72.75%;
-      --secondary-foreground: 234.55 17.46% 12.35%;
-      --tertiary: 0 0% 96.1%;
-      --tertiary-foreground: 0 0% 9%;
-      --accent: 234.55 17.83% 9.47%;
-      --accent-foreground: 0 0% 82.75%;
-      --destructive: 1.58 47.5% 52.94%;
-      --destructive-foreground: 210 40% 98.04%;
-      --ring: 225.45 71.22% 72.75%;
-      --radius: 0.5rem;
-
-    }
-  }
-  
-  
-/* @layer base {
-  :root {
-    --background: 161 60% 100%;
-    --foreground: 161 73% 4%;
-    --muted: 131 32% 87%;
-    --muted-foreground: 131 14% 27%;
-    --popover: 161 60% 100%;
-    --popover-foreground: 161 73% 4%;
-    --card: 0 0% 99%;
-    --card-foreground: 161 73% 3%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --primary: 161 74% 96%;
-    --primary-foreground: 161 74% 16%;
-    --secondary: 131 74% 96%;
-    --secondary-foreground: 131 74% 16%;
-    --tertiary: 0 0% 96.1%;
-    --tertiary-foreground: 0 0% 9%;
-    --accent: 191 74% 96%;
-    --accent-foreground: 191 74% 16%;
-    --destructive: 13 98% 25%;
-    --destructive-foreground: 13 98% 85%;
-    --ring: 161 74% 96%;
-    --radius: 0.5rem;
-  }
 
   .dark {
-    --background: 161 59% 3%;
-    --foreground: 161 35% 99%;
-    --muted: 131 32% 13%;
-    --muted-foreground: 131 14% 73%;
-    --popover: 161 59% 3%;
-    --popover-foreground: 161 35% 99%;
-    --card: 161 59% 4%;
-    --card-foreground: 0 0% 100%;
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
-    --primary: 161 74% 96%;
-    --primary-foreground: 161 74% 16%;
-    --secondary: 131 74% 96%;
-    --secondary-foreground: 131 74% 16%;
+    --background: 240 13.73% 10%;
+    --foreground: 229.76 31.78% 74.71%;
+    --muted: 232.5 15.44% 18.32%;
+    --muted-foreground: 233.79 11.37% 50%;
+    --popover: 234.55 17.46% 12.35%;
+    --popover-foreground: 234 12.4% 52.55%;
+    --card: 234.55 17.46% 12.35%;
+    --card-foreground: 229.76 31.78% 74.71%;
+    --border: 232.5 15.38% 30.59%;
+    --input: 232 20% 14.71%;
+    --primary: 207.43 68.63% 90%;
+    --primary-foreground: 0 0% 20%;
+    --secondary: 225.45 71.22% 72.75%;
+    --secondary-foreground: 234.55 17.46% 12.35%;
     --tertiary: 0 0% 96.1%;
     --tertiary-foreground: 0 0% 9%;
-    --accent: 191 74% 96%;
-    --accent-foreground: 191 74% 16%;
-    --destructive: 13 98% 54%;
-    --destructive-foreground: 0 0% 100%;
-    --ring: 161 74% 96%;
+    --accent: 234.55 17.83% 9.47%;
+    --accent-foreground: 0 0% 82.75%;
+    --destructive: 1.58 47.5% 52.94%;
+    --destructive-foreground: 210 40% 98.04%;
+    --ring: 225.45 71.22% 72.75%;
+    --radius: 0.5rem;
   }
-} */
+}
 
 @layer base {
   * {
-      @apply border-border;
-      box-sizing: border-box;
+    @apply border-border;
+    box-sizing: border-box;
   }
   body {
-      @apply bg-background text-foreground;
+    @apply bg-background text-foreground;
   }
 }
 .no-visible-scrollbar {
@@ -121,8 +68,25 @@
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
 }
- 
+
 .no-visible-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
+.rti--container {
+  --rti-bg: hsl(var(--card)) !important;
+  --rti-border: hsl(var(--border)) !important;
+  --rti-main: hsl(var(--muted)) !important;
+  --rti-radius: var(--radius) !important;
+  --rti-s: 0.5rem !important; /* spacing */
+  --rti-tag: hsl(var(--accent)) !important;
+  --rti-tag-remove: hsl(var(--destructive)) !important;
+}
+
+.rti--tag {
+  @apply !p-2;
+}
+
+.rti--input {
+  @apply bg-card text-primary;
+}
