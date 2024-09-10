@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 import { zodUserType, UserSchema } from "@/zod/types";
 import { TRequestNewPost } from "@/app/api/(types)/types";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "../../../auth/[...nextauth]/route";
+import { authOptions } from "@/lib/authOptions";
 
 const prisma = new PrismaClient();
 
