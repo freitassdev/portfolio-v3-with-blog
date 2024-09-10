@@ -26,7 +26,7 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { CircleArrowRight, Info } from 'lucide-react';
 import { TRequestGetPost } from '@/app/api/(types)/types';
-import xss from "xss";
+// import xss from "xss";
 
 export default function Editor() {
     const [html, setHtml] = useState<string>("");
@@ -80,8 +80,9 @@ export default function Editor() {
 
     const handleChangeEditor = useCallback(async () => {
         const htmlCode = await editor.blocksToFullHTML(editor.document);
-        const sanitizedHTML = xss(htmlCode);
-        setHtml(sanitizedHTML);
+        // const sanitizedHTML = xss(htmlCode);
+        // console.log(htmlCode, "\n \n \n \n \n  ", sanitizedHTML)
+        setHtml(htmlCode);
     }, [editor, setHtml]);
 
     const handleNext = async () => {
@@ -130,7 +131,7 @@ export default function Editor() {
             },
             body: JSON.stringify({
                 title,
-                content: xss(html),
+                content: html, //xss(html),
                 imageUrl,
                 simpleDescription: description,
                 tags

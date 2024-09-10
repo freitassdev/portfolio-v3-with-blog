@@ -13,7 +13,7 @@ import toast from 'react-hot-toast';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale'
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import xss from "xss";
+// import xss from "xss";
 
 import "@blocknote/mantine/style.css";
 import "@blocknote/react/style.css";
@@ -62,8 +62,9 @@ export default function PostPage({ params }: { params: { slug: string } }) {
 
         if (res.ok && response && !("message" in response)) {
           setTitle(response.title);
-          const sanitizedHTML = xss(response.content);
-          setContent(sanitizedHTML);
+          // const sanitizedHTML = xss(response.content);
+          // setContent(sanitizedHTML);
+          setContent(response.content);
           setAuthor({
             id: response.authorId,
             name: response.authorName
@@ -137,7 +138,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
               <div className="bn-container">
                 <div
                   className="bn-default-styles"
-                  dangerouslySetInnerHTML={{ __html: xss(content) }}
+                  dangerouslySetInnerHTML={{ __html: content }}
                 />
               </div>
             </div>
