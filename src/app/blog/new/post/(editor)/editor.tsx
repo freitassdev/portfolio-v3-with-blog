@@ -26,6 +26,7 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { CircleArrowRight, Info } from 'lucide-react';
 import { TRequestGetPost } from '@/app/api/(types)/types';
+import xss from "xss";
 
 export default function Editor() {
     const [html, setHtml] = useState<string>("");
@@ -79,11 +80,12 @@ export default function Editor() {
 
     const handleChangeEditor = useCallback(async () => {
         const htmlCode = await editor.blocksToFullHTML(editor.document);
-        setHtml(htmlCode);
+        const sanitizedHTML = xss(htmlCode);
+        setHtml(sanitizedHTML);
     }, [editor, setHtml]);
 
     const handleNext = async () => {
-        if (!title || !description || !html || !imageUrl) {
+        if (!title || !description || !html) {
             toast.error("Preencha todos os campos.");
             return;
         }
@@ -128,7 +130,7 @@ export default function Editor() {
             },
             body: JSON.stringify({
                 title,
-                content: html,
+                content: xss(html),
                 imageUrl,
                 simpleDescription: description,
                 tags

@@ -38,6 +38,7 @@
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
     "framer-motion": "^11.5.4",
     "lucide-react": "^0.438.0",
@@ -54,6 +55,7 @@
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.168.0",
+    "xss": "^1.0.15",
     "zod": "^3.23.8"
   },
   "devDependencies": {

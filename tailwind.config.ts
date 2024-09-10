@@ -31,14 +31,10 @@ const config: Config = {
             opacity: "0",
           },
         },
-        blink: {
-          from: {
-            'border-right-color': 'transparent'
-          },
-          to: {
-            'border-right-color': 'black'
-          },
-        },
+        spin: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        }
       },
       animation: {
         "meteor-effect": "meteor 5s linear infinite",
@@ -47,7 +43,7 @@ const config: Config = {
         grid: "grid 15s linear infinite",
         spotlight: "spotlight 2s ease .75s 1 forwards",
         aurora: "aurora 60s linear infinite",
-        blinking: 'blink 1s infinite',
+        spin: "spin 1s linear infinite",
       },
       borderRadius: {
         lg: "var(--radius)",
