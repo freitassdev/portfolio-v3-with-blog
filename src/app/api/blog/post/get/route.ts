@@ -7,7 +7,6 @@ const prisma = new PrismaClient();
 export async function GET(req: NextRequest) {
   const id = req.nextUrl.searchParams.get("id");
   const slug = req.nextUrl.searchParams.get("slug");
-  console.log(id, slug, "slug id");
   try {
     if (id || slug) {
       const post = await prisma.post.findFirst({

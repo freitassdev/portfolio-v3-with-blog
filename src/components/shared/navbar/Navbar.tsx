@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import logo from '../../../../public/images/logo-resources/logo-light-192x192.png';
-
+import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
 import { Search, Menu } from "lucide-react";
@@ -34,7 +34,6 @@ export default function Navbar({ active }: { active: string }) {
     }, []);
 
     scrollYProgress.on('change', (latest) => {
-        console.log(latest)
         if (latest > 0) {
             setIsScrolled(true);
         } else {
@@ -51,11 +50,11 @@ export default function Navbar({ active }: { active: string }) {
                 </div>
                 <div className="flex flex-row items-center gap-4">
                     <div className="flex flex-row items-center gap-4"> {/* items desktop */}
-                        <a href="#" className={cn("hidden md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b border-border", active === "home" ? "text-primary hover:text-primary/80" : "")}>Início</a>
+                        <Link href="/" className={cn("hidden md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b border-border", active === "home" ? "text-primary hover:text-primary/80" : "")}>Início</Link>
                         <Separator className="hidden md:block h-[20px]" orientation="vertical" />
-                        <a href="#" className={cn("hidden md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b border-border", active === "about-me" ? "text-primary hover:text-primary/80" : "")}>Sobre Mim</a>
+                        <Link href="/about-me" className={cn("hidden md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b border-border", active === "about-me" ? "text-primary hover:text-primary/80" : "")}>Sobre Mim</Link>
                         <Separator className="hidden md:block h-[20px]" orientation="vertical" />
-                        <a href="#" className={cn("hidden md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b border-border", active === "blog" ? "text-primary hover:text-primary/80" : "")}>Blog</a>
+                        <Link href="/blog" className={cn("hidden md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b border-border", active === "blog" ? "text-primary hover:text-primary/80" : "")}>Blog</Link>
                         <div className="flex flex-row gap-2 items-center">
                             <Input placeholder="Pesquisar artigo..." iconStyle="h-5 w-5 max-md:hidden" className="max-md:hidden border-border/50" icon={Search} />
                             <UserMenu className="max-md:hidden" />
@@ -70,11 +69,11 @@ export default function Navbar({ active }: { active: string }) {
                     width: submenuWidth,
                 }}>
                 <div className="flex flex-col justify-start items-center w-full gap-4">
-                    <a href="#" className="hidden max-md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80">Início</a>
+                    <Link href="#" className="hidden max-md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80">Início</Link>
                     <Separator className="hidden max-md:block max-w-48" />
-                    <a href="#" className="hidden max-md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80">Sobre Mim</a>
+                    <Link href="#" className="hidden max-md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80">Sobre Mim</Link>
                     <Separator className="hidden max-md:block max-w-48" />
-                    <a href="#" className="hidden max-md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80">Blog</a>
+                    <Link href="#" className="hidden max-md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80">Blog</Link>
                 </div>
                 <div className="w-full">
                     <Input placeholder="Pesquisar artigo..." iconStyle="h-5 w-5 md:hidden" className="md:hidden border-border/50" icon={Search} />

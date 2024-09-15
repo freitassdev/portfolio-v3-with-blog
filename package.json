@@ -1,7 +1,12 @@
 {
-  "name": "my-app",
+  "name": "portfio",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Michel de Freitas",
+    "email": "michelfreitas2018@gmail.com",
+    "url": "https://michelfreitas.com"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
