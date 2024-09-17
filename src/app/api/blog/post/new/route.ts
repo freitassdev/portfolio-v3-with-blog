@@ -32,7 +32,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
       title.length < 5 ||
       content.length < 10 ||
       simpleDescription.length < 10 ||
-      tags.length > 10
+      tags.length > 10 || 
+      title.length > 100
     ) {
       return NextResponse.json(
         {

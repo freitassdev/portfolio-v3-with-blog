@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 import { TResponseGetPost } from "../api/(types)/types";
 import Navbar from "@/components/shared/navbar/Navbar";
-import {
-    DotFilledIcon
-} from "@radix-ui/react-icons"
+import PostItem from '../../components/shared/post-item/post-item';
+
+
+import { DotFilledIcon } from "@radix-ui/react-icons"
 
 import {
     Command,
@@ -41,7 +42,7 @@ export default function Blog() {
             <div className="h-full max-md:w-full max-md:px-4 md:w-[600px] lg:w-[800px] xl:w-[1000px] 2xl:w-[1300px]">
                 <Navbar active="blog" />
                 <div className="flex flex-row gap-4 mt-24">
-                    <Command className="rounded-lg border shadow-md md:max-w-[350px]">
+                    <Command className="rounded-lg bg-card border shadow-md md:max-w-[350px]">
                         <CommandInput placeholder="Pesquise por uma tag..." />
                         <CommandList className=" max-h-[900px]">
                             <CommandEmpty>Nenhuma tag encontrada.</CommandEmpty>
@@ -88,10 +89,17 @@ export default function Blog() {
                             </CommandGroup>
                         </CommandList>
                     </Command>
-                    <div className="flex flex-col mt-24">
+                    <div className="flex flex-col gap-3 w-full">
                         {posts.map((post) => (
-                            <div key={post.id}>
-                                <p>{post.slug}</p>
+                            <div key={post.id} className="w-full">
+                                <PostItem
+                                    description={post.simpleDescription} 
+                                    title={post.title}
+                                    tags={post.tags}
+                                    slug={post.slug}
+                                    publishedAt="11 de set de 20xx"
+                                    authorName={post.authorName}
+                                     />
                             </div>
                         ))}
                     </div>
