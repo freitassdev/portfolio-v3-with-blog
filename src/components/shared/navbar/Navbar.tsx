@@ -31,6 +31,7 @@ export default function Navbar({ active }: { active: string }) {
                 }
             });
         })
+        setIsScrolled(false);
     }, []);
 
     scrollYProgress.on('change', (latest) => {

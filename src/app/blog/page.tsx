@@ -15,10 +15,10 @@ import {
     CommandInput,
     CommandItem,
     CommandList,
-    CommandSeparator,
-    CommandShortcut,
+    CommandSeparator
 } from "@/components/ui/command"
-
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
 export default function Blog() {
     const [posts, setPosts] = useState<TResponseGetPost[]>([]);
@@ -97,7 +97,7 @@ export default function Blog() {
                                     title={post.title}
                                     tags={post.tags}
                                     slug={post.slug}
-                                    publishedAt="11 de set de 20xx"
+                                    publishedAt={format(new Date(post.createdAt), 'dd MMM yyyy', { locale: ptBR })}
                                     authorName={post.authorName}
                                      />
                             </div>
