@@ -3,6 +3,7 @@ import HeroSection from '@/components/landing/hero/hero';
 import ProjectsSection from '@/components/landing/projects/projects';
 import { Spotlight } from "@/components/ui/spotlight";
 import { Separator } from "@radix-ui/react-separator";
+import Footer from '@/components/shared/footer/footer';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
           className="-top-40 left-0 md:left-20 md:-top-20"
           fill="white"
         />
+        <Footer />
       </div>
     </div>
   );
