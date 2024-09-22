@@ -17,6 +17,7 @@ export default function Navbar({ active }: { active: string }) {
     const [isMobile, setIsMobile] = useState<boolean>(false);
     const [submenuWidth, setSubmenuWidth] = useState<number>(0);
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
+    const [isAdmin, setIsAdmin] = useState<boolean>(false);
     const { scrollYProgress } = useScroll();
     const navRef = useRef<HTMLDivElement>(null);
 
@@ -52,13 +53,22 @@ export default function Navbar({ active }: { active: string }) {
                 <div className="flex flex-row items-center gap-4">
                     <div className="flex flex-row items-center gap-4"> {/* items desktop */}
                         <Link href="/" className={cn("hidden md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b border-border", active === "home" ? "text-primary hover:text-primary/80" : "")}>Início</Link>
+
                         <Separator className="hidden md:block h-[20px]" orientation="vertical" />
                         <Link href="/about-me" className={cn("hidden md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b border-border", active === "about-me" ? "text-primary hover:text-primary/80" : "")}>Sobre Mim</Link>
+
                         <Separator className="hidden md:block h-[20px]" orientation="vertical" />
                         <Link href="/blog" className={cn("hidden md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b border-border", active === "blog" ? "text-primary hover:text-primary/80" : "")}>Blog</Link>
+                        {isAdmin && (
+                            <>
+                                <Separator className="hidden md:block h-[20px]" orientation="vertical" />
+
+                                <Link href="/about-me" className={cn("hidden md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b border-border", active === "about-me" ? "text-primary hover:text-primary/80" : "")}>Dashboard</Link>
+                            </>
+                        )}
                         <div className="flex flex-row gap-2 items-center">
                             <Input placeholder="Pesquisar artigo..." iconStyle="h-5 w-5 max-md:hidden" className="max-md:hidden border-border/50" icon={Search} />
-                            <UserMenu className="max-md:hidden" />
+                            <UserMenu setIsAdmin={setIsAdmin} className="max-md:hidden" />
                         </div>
 
                         <Menu className="block md:hidden cursor-pointer" onClick={() => setIsMobile((prev) => !prev)} />
@@ -78,7 +88,7 @@ export default function Navbar({ active }: { active: string }) {
                 </div>
                 <div className="w-full">
                     <Input placeholder="Pesquisar artigo..." iconStyle="h-5 w-5 md:hidden" className="md:hidden border-border/50" icon={Search} />
-                    <UserMenu className="md:hidden" />
+                    <UserMenu setIsAdmin={setIsAdmin} className="md:hidden" />
                 </div>
             </div>
         </>

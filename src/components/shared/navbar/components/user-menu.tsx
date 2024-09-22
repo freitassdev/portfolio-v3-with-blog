@@ -15,8 +15,12 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { LogOut, MessageCircleCode, MessageCircleHeart, MessageCirclePlus, User, UserPen } from "lucide-react";
 import { Label } from '@/components/ui/label';
+import { Badge } from "@/components/ui/badge";
 
-export default function UserMenu({ className }: { className?: string }) {
+export default function UserMenu({ className, setIsAdmin }: {
+    className?: string,
+    setIsAdmin: (value: boolean) => void
+}) {
     const [nameAbrev, setNameAbrev] = useState<string>("");
     const router = useRouter();
     const { data: session, status } = useSession();
@@ -26,6 +30,9 @@ export default function UserMenu({ className }: { className?: string }) {
             const name = session.user.fullName;
             const nameAbreviation = name.split(" ").map((n) => n[0]).join("").substring(0, 2);
             setNameAbrev(nameAbreviation);
+            if (session.user.role === "ADMIN") {
+                setIsAdmin(true);
+            }
         }
     }, [session])
 
@@ -48,10 +55,10 @@ export default function UserMenu({ className }: { className?: string }) {
                                 <AvatarFallback>{nameAbrev.toUpperCase()}</AvatarFallback>
                             </Avatar>
                             <div className="flex flex-col justify-center gap-1 h-full">
-                                <h4 className="text-primary font-medium leading-none">{session.user.fullName}
-                                    <span className="text-muted-foreground">
-                                        {session.user.role !== "USER" && " -" + session.user.role.toLocaleLowerCase()}
-                                    </span>
+                                <h4 className="text-primary font-medium leading-none flex flex-row items-center">{session.user.fullName}
+                                    <Badge className="rounded-full text-muted-foreground px-1 ml-2">
+                                        {session.user.role !== "USER" && session.user.role.toLocaleUpperCase()}
+                                    </Badge>
                                 </h4>
                                 <p className="text-sm text-foreground">
                                     @{session?.user?.username}

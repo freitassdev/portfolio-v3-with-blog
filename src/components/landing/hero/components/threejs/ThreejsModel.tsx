@@ -87,7 +87,7 @@ export const ThreejsModel: React.FC = () => {
           </Suspense>
           <Environment preset="studio" />
           {/* <OrbitControls enableZoom={true} /> */}
-          <OrbitControls enableZoom={false} target={[0, 0, 0]} />
+          <OrbitControls enableZoom={false} target={[0, 0, 0]} enablePan={false}  />
         </Canvas>
         <div className="absolute bottom-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
         <div className="absolute bottom-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
