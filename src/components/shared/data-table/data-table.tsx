@@ -17,6 +17,7 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import { useState } from "react"
+import { Filter } from "lucide-react"
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
@@ -43,7 +44,7 @@ export function DataTable<TData, TValue>({
 
     return (
         <div>
-            <div className="flex items-center py-4">
+            <div className="flex items-center py-4 w-full">
                 <Input
                     placeholder="Filtrar globalmente..."
                     value={globalFilter}
@@ -51,7 +52,9 @@ export function DataTable<TData, TValue>({
                         table.setGlobalFilter(String(event.target.value))
                         setInputText(event.target.value)
                     }}
-                    className="max-w-sm bg-card border-border"
+                    className="min-w-[300px] w-full bg-card border-border"
+                    icon={Filter}
+                    iconStyle="w-5 h-5 text-muted-foreground"
                 />
             </div>
             <div className="rounded-md border bg-card/30">
