@@ -53,6 +53,11 @@ export interface TRequestGetPost {
 }
 
 export interface TResponseGetPost {
+  totalPosts: number;
+  allPosts: IPost[];
+}
+
+interface IPost {
   id: string;
   title: string;
   content: string;

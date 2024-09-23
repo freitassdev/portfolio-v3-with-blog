@@ -21,17 +21,19 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 export default function Blog() {
-    const [posts, setPosts] = useState<TResponseGetPost[]>([]);
+    const [posts, setPosts] = useState<TResponseGetPost["allPosts"]>([]);
+    const [totalPosts, setTotalPosts] = useState<number>(0);
     useEffect(() => {
         const fetchAllPosts = async () => {
             const res = await fetch(`/api/blog/post/get`, {
                 method: "GET"
             });
 
-            const response: TResponseGetPost[] = await res.json();
+            const response: TResponseGetPost = await res.json();
 
             if (res.ok) {
-                setPosts(response);
+                setPosts(response.allPosts);
+                setTotalPosts(response.totalPosts);
             }
         }
 

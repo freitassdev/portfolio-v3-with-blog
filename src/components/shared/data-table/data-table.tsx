@@ -21,7 +21,7 @@ import { Filter } from "lucide-react"
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
-    data: TData[]
+    data: TData[],
 }
 
 export function DataTable<TData, TValue>({
@@ -44,7 +44,8 @@ export function DataTable<TData, TValue>({
 
     return (
         <div>
-            <div className="flex items-center py-4 w-full">
+            <div className="flex items-center py-4 w-full justify-between">
+                <h1 className="text-md font-medium text-foreground">{data.length} Usuários encontrados.</h1>
                 <Input
                     placeholder="Filtrar globalmente..."
                     value={globalFilter}

@@ -1,6 +1,5 @@
 import { PrismaClient } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
-import { TRequestGetPost } from "@/app/api/(types)/types";
 
 const prisma = new PrismaClient();
 
@@ -20,9 +19,9 @@ export async function GET(req: NextRequest) {
 
       return NextResponse.json({ message: "Post not found" }, { status: 404 });
     }
-
+    const totalPosts = await prisma.post.count();
     const allPosts = await prisma.post.findMany();
-    return NextResponse.json(allPosts, { status: 200 });
+    return NextResponse.json({ allPosts, totalPosts }, { status: 200 });
   } catch (error) {
     console.log("Error while getting post", error);
     return NextResponse.json(
