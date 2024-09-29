@@ -61,20 +61,21 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         const response: TResponseGetPost | { message: string } = await res.json();
 
         if (res.ok && response && !("message" in response)) {
-          setTitle(response.title);
-          // const sanitizedHTML = xss(response.content);
+          const post = response.allPosts[0];
+          setTitle(post.title);
+          // const sanitizedHTML = xss(post.content);
           // setContent(sanitizedHTML);
-          setContent(response.content);
+          setContent(post.content);
           setAuthor({
-            id: response.authorId,
-            name: response.authorName
+            id: post.authorId,
+            name: post.authorName
           });
-          setImageUrl(response.imageUrl ?? "");
-          setSimpleDescription(response.simpleDescription);
-          setTags(response.tags);
-          setLikes(response.likes);
-          setCreatedAt(response.createdAt);
-          const date = format(response.createdAt, 'dd MMM yyyy', { locale: ptBR })
+          setImageUrl(post.imageUrl ?? "");
+          setSimpleDescription(post.simpleDescription);
+          setTags(post.tags);
+          setLikes(post.likes);
+          setCreatedAt(post.createdAt);
+          const date = format(post.createdAt, 'dd MMM yyyy', { locale: ptBR })
           setFormatedDate(date)
           setLoading(false)
 
