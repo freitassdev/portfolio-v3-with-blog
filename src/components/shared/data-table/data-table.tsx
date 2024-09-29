@@ -53,7 +53,7 @@ export function DataTable<TData, TValue>({
                         table.setGlobalFilter(String(event.target.value))
                         setInputText(event.target.value)
                     }}
-                    className="min-w-[300px] w-full bg-card border-border"
+                    className="mi   n-w-[300px] w-full bg-card border-border"
                     icon={Filter}
                     iconStyle="w-5 h-5 text-muted-foreground"
                 />
