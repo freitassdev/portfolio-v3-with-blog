@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import {  getToken } from "next-auth/jwt";
 
-const publicPages = ["/", "/images/*", "/spheron.glb", "/blog", "/blog/post/*", "/blog/tag/*"];
+const publicPages = ["/", "/images/*", "/test2.glb", "/blog", "/blog/post/*", "/blog/tag/*"];
 const authPages = ["/auth/*"];
 const protectedPages = ["/dashboard"];
 
