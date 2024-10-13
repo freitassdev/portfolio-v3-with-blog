@@ -57,7 +57,7 @@ export const Model: React.FC = () => {
 
 export const ThreejsModel: React.FC = () => {
   return (
-    <div className="flex w-full max-lg:h-full h-1/2 items-center justify-center relative">
+    <div className="flex w-full max-lg:h-full h-1/2 items-center justify-center relative mt-5">
       <Canvas camera={{ position: [0, 0, 7], fov: 30 }}>
         <ambientLight intensity={1} />
         <pointLight position={[0, 0, 0]} />

@@ -64,12 +64,12 @@ export default function ProjectsSection() {
                         </h1>
                     </BoxReveal>
                 </div>
-                <div className="h-[20rem] md:h-[45rem] [perspective:1200px] relative b flex flex-col max-w-full mx-auto w-full  items-start justify-start my-4">
+                <div className="h-[22rem] md:h-[45rem] [perspective:1200px] relative  flex flex-col max-w-full mx-auto w-full  items-start justify-start my-4">
                     <Tabs tabs={tabs} />
                 </div>
             </div>
             <InfiniteMovingCards
-                className="my-10"
+                className="my-10 mt-20"
                 items={itens}
                 direction="right"
                 speed="slow"
