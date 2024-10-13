@@ -19,6 +19,7 @@ import {
 import { BiLogoTypescript } from "react-icons/bi";
 import { DiCode } from "react-icons/di";
 import { Separator } from '@/components/ui/separator';
+import Link from "next/link";
 
 export default function Footer() {
     return (
@@ -39,14 +40,21 @@ export default function Footer() {
             <Separator className="hidden max-md:flex" />
             <div className="flex flex-col gap-3">
                 <div className="flex flex-row max-md:justify-start justify-end items-center gap-3 font-bold">
-                    <LinkedInLogoIcon className="w-5 h-5" />
+                    <Link href="https://www.linkedin.com/in/michel-de-freitas" rel="noopener noreferrer" target="_blank">
+                        <LinkedInLogoIcon className="w-5 h-5" />
+                    </Link>
                     <span className="text-muted">•</span>
-                    <GitHubLogoIcon className="w-5 h-5" />
+                    <Link href="https://github.com/freitassdev" rel="noopener noreferrer" target="_blank">
+                        <GitHubLogoIcon className="w-5 h-5" />
+                    </Link>
                     <span className="text-muted">•</span>
-                    <InstagramLogoIcon className="w-5 h-5" />
+                    <Link href="https://www.instagram.com/freitascrl" rel="noopener noreferrer" target="_blank">
+                        <InstagramLogoIcon className="w-5 h-5" />
+                    </Link>
                     <span className="text-muted">•</span>
-                    <EnvelopeClosedIcon className="w-5 h-5" />
-
+                    <Link href="mailto:contato@michelfreitas.com" rel="noopener noreferrer" target="_blank">
+                        <EnvelopeClosedIcon className="w-5 h-5" />
+                    </Link>
                 </div>
                 <div className="flex flex-row justify-start items-center gap-2 text-sm">
                     Feito com <HeartFilledIcon className="mt-[-2px] text-destructive" /> usando

@@ -45,29 +45,29 @@ export default function Navbar({ active }: { active: string }) {
 
     return (
         <>
-            <nav className={cn("fixed inset-x-0 top-4 z-50 md:mx-auto flex h-[60px] items-center justify-between rounded-xl border px-2 saturate-100 backdrop-blur-[6px] transition-all duration-200 max-sm:mx-3 sm:mx-3 md:w-[600px] lg:w-[800px] xl:w-[1000px] 2xl:w-[1300px] shadow-lg ", isScrolled ? "bg-background/80 border-border/80" : "bg-card border-border")} ref={navRef}>
+            <nav className={cn("fixed inset-x-0 top-4 z-50 md:mx-auto flex h-[50px] items-center justify-between rounded-xl border px-2 saturate-100 backdrop-blur-[6px] transition-all duration-200 max-sm:mx-3 sm:mx-3 md:w-[600px] lg:w-[800px] xl:w-[1000px] 2xl:w-[1300px] shadow-lg ", isScrolled ? "bg-background/80 border-border/80" : "bg-card border-border")} ref={navRef}>
                 <div className="flex flex-row gap-3 items-center">
-                    <Image className="h-[40px] w-auto rounded-md" src={logo} alt="Logo" />
+                    <Image className="h-[35px] w-auto rounded-md" src={logo} alt="Logo" />
                     <a href="/" className="text-xl font-bold text-primary">michelfreitas</a>
                 </div>
                 <div className="flex flex-row items-center gap-4">
                     <div className="flex flex-row items-center gap-4"> {/* items desktop */}
-                        <Link href="/" className={cn("hidden md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b border-border", active === "home" ? "text-primary hover:text-primary/80" : "")}>Início</Link>
+                        <Link href="/" className={cn("hidden md:block text-md text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b border-border", active === "home" ? "text-primary hover:text-primary/80" : "")}>Início</Link>
 
                         <Separator className="hidden md:block h-[20px]" orientation="vertical" />
-                        <Link href="/about-me" className={cn("hidden md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b border-border", active === "about-me" ? "text-primary hover:text-primary/80" : "")}>Sobre Mim</Link>
+                        <Link href="/about-me" className={cn("hidden md:block text-md text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b border-border", active === "about-me" ? "text-primary hover:text-primary/80" : "")}>Sobre Mim</Link>
 
                         <Separator className="hidden md:block h-[20px]" orientation="vertical" />
-                        <Link href="/blog" className={cn("hidden md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b border-border", active === "blog" ? "text-primary hover:text-primary/80" : "")}>Blog</Link>
+                        <Link href="/blog" className={cn("hidden md:block text-md text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b border-border", active === "blog" ? "text-primary hover:text-primary/80" : "")}>Blog</Link>
                         {isAdmin && (
                             <>
                                 <Separator className="hidden md:block h-[20px]" orientation="vertical" />
 
-                                <Link href="/about-me" className={cn("hidden md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b border-border", active === "about-me" ? "text-primary hover:text-primary/80" : "")}>Dashboard</Link>
+                                <Link href="/about-me" className={cn("hidden md:block text-md text-foreground transition-all duration-200 hover:text-foreground/80 hover:border-b border-border", active === "about-me" ? "text-primary hover:text-primary/80" : "")}>Dashboard</Link>
                             </>
                         )}
                         <div className="flex flex-row gap-2 items-center">
-                            <Input placeholder="Pesquisar artigo..." iconStyle="h-5 w-5 max-md:hidden" className="max-md:hidden border-border/50" icon={Search} />
+                            <Input placeholder="Pesquisar artigo..." iconStyle="h-5 w-5 max-md:hidden" className="max-md:hidden h-[35px] border-border/50" icon={Search} />
                             <UserMenu setIsAdmin={setIsAdmin} className="max-md:hidden" />
                         </div>
 

@@ -113,7 +113,7 @@ export default function UserMenu({ className, setIsAdmin }: {
     }
     return (
         <div className={cn("flex flex-row items-center gap-4", className)}>
-            <Button className="text-sm" onClick={() => router.push("/auth/login")}>Fazer Login</Button>
+            <Button className="text-sm h-[33px]" onClick={() => router.push("/auth/login")}>Fazer Login</Button>
         </div>
     )
 }
