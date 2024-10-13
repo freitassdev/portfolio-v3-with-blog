@@ -67,10 +67,10 @@ export const ThreejsModel: React.FC = () => {
         <Environment preset='studio' environmentIntensity={3.5} /> {/*warehouse fica bonito no tema black*/}
         <OrbitControls enableZoom={false} target={[0, 0, 0]} enablePan={false} />
       </Canvas>
-      <div className="absolute bottom-0 bg-gradient-to-r from-transparent via-indigo-400 to-transparent h-[2px] w-3/4 blur-sm" />
+      {/* <div className="absolute bottom-0 bg-gradient-to-r from-transparent via-indigo-400 to-transparent h-[2px] w-3/4 blur-sm" />
       <div className="absolute bottom-0 bg-gradient-to-r from-transparent via-indigo-400 to-transparent h-px w-3/4" />
       <div className="absolute bottom-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
-      <div className="absolute bottom-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+      <div className="absolute bottom-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" /> */}
     </div>
   )
 }
