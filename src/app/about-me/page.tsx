@@ -1,17 +1,16 @@
-import Navbar from '@/components/shared/navbar/Navbar';
 import Footer from '@/components/shared/footer/footer';
-import Image from 'next/image';
-import myself from '../../../public/images/myself.jpg';
+import Navbar from '@/components/shared/navbar/Navbar';
 import { HoverBorderGradient } from '@/components/ui/hover-border-gradient';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
-import { LinkedInLogoIcon, GitHubLogoIcon, InstagramLogoIcon, EnvelopeClosedIcon } from '@radix-ui/react-icons';
-import { GraduationCap, BriefcaseBusiness } from 'lucide-react';
+import { EnvelopeClosedIcon, GitHubLogoIcon, InstagramLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
+import Image from 'next/image';
 import Link from 'next/link';
+import myself from '../../../public/images/myself.jpg';
 export default function Home() {
     return (
 
         <div className="h-screen w-full bg-background relative flex items-center justify-center">
-            <div className="h-full max-md:w-full max-md:px-4 md:w-[600px] lg:w-[800px] xl:w-[1000px] 2xl:w-[1300px]">
+            <div className="h-full max-md:w-full max-md:px-4 md:w-[600px] lg:w-[800px] xl:w-[1100px] 2xl:w-[1300px]">
                 <Navbar active="about-me" />
                 <div className='flex flex-row max-lg:flex-col-reverse max-lg:mt-28 items-center justify-between max-lg:h-auto h-full w-full gap-20 max-lg:gap-10'>
                     <div className='flex-1 flex flex-col gap-4 max-lg:items-center'>

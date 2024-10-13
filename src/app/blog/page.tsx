@@ -1,12 +1,12 @@
 'use client';
 
-import { useEffect, useState } from "react";
-import { TResponseGetPost } from "../api/(types)/types";
 import Navbar from "@/components/shared/navbar/Navbar";
+import { useEffect, useState } from "react";
 import PostItem from '../../components/shared/post-item/post-item';
+import { TResponseGetPost } from "../api/(types)/types";
 
 
-import { DotFilledIcon } from "@radix-ui/react-icons"
+import { DotFilledIcon } from "@radix-ui/react-icons";
 
 import {
     Command,
@@ -16,7 +16,7 @@ import {
     CommandItem,
     CommandList,
     CommandSeparator
-} from "@/components/ui/command"
+} from "@/components/ui/command";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
@@ -41,7 +41,7 @@ export default function Blog() {
     }, [])
     return (
         <div className="h-screen w-full bg-background relative flex items-center justify-center">
-            <div className="h-full max-md:w-full max-md:px-4 md:w-[600px] lg:w-[800px] xl:w-[1000px] 2xl:w-[1300px]">
+            <div className="h-full max-md:w-full max-md:px-4 md:w-[600px] lg:w-[800px] xl:w-[1100px] 2xl:w-[1300px]">
                 <Navbar active="blog" />
                 <div className="flex flex-row gap-4 mt-24">
                     <Command className="rounded-lg bg-card border shadow-md md:max-w-[350px]">

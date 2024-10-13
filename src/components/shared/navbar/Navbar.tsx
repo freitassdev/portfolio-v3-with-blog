@@ -45,7 +45,7 @@ export default function Navbar({ active }: { active: string }) {
 
     return (
         <>
-            <nav className={cn("fixed inset-x-0 top-4 z-50 md:mx-auto flex h-[50px] items-center justify-between rounded-xl border px-2 saturate-100 backdrop-blur-[6px] transition-all duration-200 max-sm:mx-3 sm:mx-3 md:w-[600px] lg:w-[800px] xl:w-[1000px] 2xl:w-[1300px] shadow-lg ", isScrolled ? "bg-background/80 border-border/80" : "bg-card border-border")} ref={navRef}>
+            <nav className={cn("fixed inset-x-0 top-4 z-50 md:mx-auto flex h-[50px] items-center justify-between rounded-xl border px-2 saturate-100 backdrop-blur-[6px] transition-all duration-200 max-sm:mx-3 sm:mx-3 md:w-[600px] lg:w-[800px] xl:w-[1100px] 2xl:w-[1300px] shadow-lg ", isScrolled ? "bg-background/80 border-border/80" : "bg-card border-border")} ref={navRef}>
                 <div className="flex flex-row gap-3 items-center">
                     <Image className="h-[35px] w-auto rounded-md" src={logo} alt="Logo" />
                     <a href="/" className="text-xl font-bold text-primary">michelfreitas</a>
