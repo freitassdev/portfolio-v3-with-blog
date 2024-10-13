@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 const prisma = new PrismaClient();
 
 export async function GET(req: NextRequest) {
+  //TODO: add permission check
   const id = req.nextUrl.searchParams.get("id");
   try {
     if (id) {
