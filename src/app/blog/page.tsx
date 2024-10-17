@@ -43,7 +43,7 @@ export default function Blog() {
         <div className="h-screen w-full bg-background relative flex items-center justify-center">
             <div className="h-full max-md:w-full max-md:px-4 md:w-[600px] lg:w-[800px] xl:w-[1100px] 2xl:w-[1300px]">
                 <Navbar active="blog" />
-                <div className="flex flex-row gap-4 mt-24">
+                <div className="flex flex-row gap-4 mt-24 max-md:flex-col ">
                     <Command className="rounded-lg bg-card border border-border shadow-md md:max-w-[350px]">
                         <CommandInput placeholder="Pesquise por uma tag..." />
                         <CommandList className=" max-h-[900px]">

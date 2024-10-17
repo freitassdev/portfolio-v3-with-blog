@@ -47,7 +47,7 @@ export default function UserPage({ params }: { params: { username: string } }) {
         <div className="h-screen w-full bg-background relative flex items-center justify-center">
             <div className="h-full max-md:w-full max-md:px-4 md:w-[600px] lg:w-[800px] xl:w-[1100px] 2xl:w-[1300px]">
                 <Navbar active="blog" />
-                <div className="flex flex-row gap-4 mt-24">
+                <div className="flex flex-row gap-4 mt-24 max-md:flex-col ">
                     <div className="flex h-full w-full flex-col overflow-hidden text-popover-foreground rounded-lg bg-card border border-border shadow-md md:max-w-[350px] p-4 items-center gap-4">
                         <div className="flex flex-col items-center gap-2">
                             <Avatar className="cursor-pointer w-20 h-20 text-2xl">
