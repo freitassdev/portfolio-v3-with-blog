@@ -13,6 +13,7 @@ export async function GET(req: NextRequest) {
           OR: [{ id: id ? id : undefined }, { slug: slug ? slug : undefined }],
         },
       });
+      
       if (post) {
         return NextResponse.json({ allPosts: [post], totalPosts: 1 }, { status: 200 });
       }

@@ -1,20 +1,38 @@
+"use client"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Heart } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 interface IPostItemProps {
     title: string;
     description: string;
     tags: string[];
     slug: string;
     publishedAt: string;
-    authorName: string;
-    authorUsername: string;
+    authorId: string;
+    authorUsername?: string;
+    authorName?: string;
 }
 
-export default function PostItem({ title, description, tags, slug, publishedAt, authorName, authorUsername }: IPostItemProps) {
+export default function PostItem({ title, description, tags, slug, publishedAt, authorId, authorUsername, authorName }: IPostItemProps) {
+    const [username, setUsername] = useState<string | undefined>(authorUsername);
+    const [userFullName, setUserFullName] = useState<string | undefined>(authorName);
 
+    useEffect(() => {
+        const fetchAuthor = async () => {
+            if (!username || !userFullName) {
+                const response = await fetch(`/api/blog/users/get?id=${authorId}`, {
+                    method: "GET"
+                });
+                const data = await response.json();
+                setUsername(data.username);
+                setUserFullName(data.fullName);
+            }
+        };
+        fetchAuthor();
+    }, [authorId, username, userFullName]);
 
     return (
         <>
@@ -38,13 +56,13 @@ export default function PostItem({ title, description, tags, slug, publishedAt, 
                                 Ver Post
                             </Button>
                         </Link>
-                        <Link href={`/blog/user/${authorUsername}`}>
+                        <Link href={`/blog/user/${username}`}>
                             <div className="flex flex-row items-center gap-2">
-                                {authorName}
+                                {userFullName}
                                 <Avatar className="cursor-pointer">
                                     {/* <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" /> */}
                                     <AvatarFallback>
-                                        {authorName.split(" ").map((n) => n[0]).join("").substring(0, 2).toUpperCase()}
+                                        {userFullName?.split(" ").map((n) => n[0]).join("").substring(0, 2).toUpperCase()}
                                     </AvatarFallback>
                                 </Avatar>
                             </div>

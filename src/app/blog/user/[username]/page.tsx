@@ -82,8 +82,9 @@ export default function UserPage({ params }: { params: { username: string } }) {
                                     tags={post.tags}
                                     slug={post.slug}
                                     publishedAt={format(new Date(post.createdAt), 'dd MMM yyyy', { locale: ptBR })}
-                                    authorName={post.authorName}
+                                    authorName={user?.fullName ?? ""}
                                     authorUsername={user?.username ?? ""}
+                                    authorId={post.authorId}
                                 />
                             </div>
                         ))}
