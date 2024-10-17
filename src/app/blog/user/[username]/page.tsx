@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState } from "react";
 import Navbar from "@/components/shared/navbar/Navbar";
+import { useEffect, useState } from "react";
 import PostItem from '@/components/shared/post-item/post-item';
 import { TResponseGetPost } from "../api/(types)/types";
 

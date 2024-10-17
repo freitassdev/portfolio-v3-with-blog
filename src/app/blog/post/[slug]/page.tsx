@@ -18,6 +18,7 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 import "@blocknote/mantine/style.css";
 import "@blocknote/react/style.css";
 import "@/css/blocknote.css"
+import { cn } from '@/lib/utils';
 
 export default function PostPage({ params }: { params: { slug: string } }) {
   const [title, setTitle] = useState<string>("");
@@ -68,12 +69,12 @@ export default function PostPage({ params }: { params: { slug: string } }) {
             return `<img src="${url}" alt="Imagem" />`;
           });
           setContent(processedHtml);
-          console.log(processedHtml)
           setAuthor({
             id: post.authorId,
             name: post.authorName
           });
-          setImageUrl(post.imageUrl ?? "");
+          const verifiedImageUrl = await verifyImageUrl(post.imageUrl ?? "");
+          setImageUrl(verifiedImageUrl ?? "");
           setSimpleDescription(post.simpleDescription);
           setTags(post.tags);
           setLikes(post.likes);
@@ -111,8 +112,19 @@ export default function PostPage({ params }: { params: { slug: string } }) {
     fetchPost();
   }, [router, slug])
 
-
-
+  const verifyImageUrl = async (url: string) => {
+    if (url.startsWith("http://") || url.startsWith("https://")) {
+      try {
+        const response = await fetch(url, { method: 'HEAD' });
+        if (response.ok) {
+          return url;
+        }
+      } catch (error) {
+        console.error("Erro ao verificar a URL da imagem:", error);
+      }
+    }
+    return undefined;
+  }
   return (
 
     <div className="h-screen w-full bg-background relative flex items-center justify-center">
@@ -122,7 +134,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
           <Loader loading={loading} />
           <Button className='max-w-fit items-center  flex flex-row gap-2' onClick={() => router.back()}><CircleArrowLeft size={20} />Voltar</Button>
           <div className='flex flex-col gap-5 mt-5'>
-            <h1 className='font-extrabold text-7xl text-primary'>Como gerenciar estados globalmente no Next.js🚀</h1>
+            <h1 className='font-extrabold text-6xl max-sm:text-5xl text-primary'>{title}</h1>
             <div className='flex flex-row gap-3 items-center'>
               <span className='text-primary'>📝 Por <span className='font-bold'>{author.name}</span> - <span className='font-bold'>{formatedDate}</span></span>
               <Separator className='flex-1' />
@@ -130,15 +142,18 @@ export default function PostPage({ params }: { params: { slug: string } }) {
                 <span key={index} className='bg-card text-primary px-2 py-1 rounded-md cursor-pointer'>{tag}</span>
               ))}
             </div>
-            <div className=''>
-              <AspectRatio ratio={16 / 9} className="bg-muted">
-                <Image
-                  src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
-                  alt="Photo by Drew Beamer"
-                  fill
-                  className="h-full w-full rounded-md object-cover"
-                />
-              </AspectRatio>
+            <div className='flex flex-col gap-3'>
+              {imageUrl &&
+                <AspectRatio ratio={16 / 9} className={cn("bg-muted rounded-md border border-border ", imageUrl ? "block" : "hidden")}>
+                  <Image
+                    src={imageUrl}
+                    alt="Capa do Post (imagem)"
+                    fill
+                    className="h-full w-full rounded-md object-cover"
+                  />
+                </AspectRatio>
+              }
+              <Separator />
               <div className="bn-container">
                 <div
                   className="bn-default-styles"
