@@ -216,6 +216,7 @@ export default function Editor() {
                     editor={editor}
                     title="Novo Post"
                     data-theming-css-variables-demo
+                    
                     onChange={handleChangeEditor}
                 />
                 <Button onClick={() => handleNext()} className='ml-auto max-w-40 flex flex-row items-center gap-2' disabled={false}>{loading ? "Carregando..." : "Concluir"} <CircleArrowRight size={20} /></Button>
@@ -224,3 +225,4 @@ export default function Editor() {
 
     );
 };
+

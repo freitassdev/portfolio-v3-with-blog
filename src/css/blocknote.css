@@ -33,3 +33,13 @@
 .bn-editor {
  @apply py-4;
 }
+
+.bn-block-content[data-content-type="heading"] h1, 
+.bn-block-content[data-content-type="heading"] h2, 
+.bn-block-content[data-content-type="heading"] h3
+{
+  @apply text-primary;
+}
+.bn-block img {
+  @apply rounded-md mt-4 border border-border;
+}

@@ -14,7 +14,7 @@ export async function GET(req: NextRequest) {
         },
       });
       if (post) {
-        return NextResponse.json(post, { status: 200 });
+        return NextResponse.json({ allPosts: [post], totalPosts: 1 }, { status: 200 });
       }
 
       return NextResponse.json({ message: "Post not found" }, { status: 404 });

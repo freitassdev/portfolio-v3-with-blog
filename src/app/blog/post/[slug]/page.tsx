@@ -61,11 +61,14 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         const response: TResponseGetPost | { message: string } = await res.json();
 
         if (res.ok && response && !("message" in response)) {
+          console.log(response)
           const post = response.allPosts[0];
           setTitle(post.title);
-          // const sanitizedHTML = xss(post.content);
-          // setContent(sanitizedHTML);
-          setContent(post.content);
+          const processedHtml = post.content.replace(/<div class="bn-block-content"[^>]*data-url="(.*?)"[^>]*>.*?<img.*?>.*?<\/div>/g, (match, url) => {
+            return `<img src="${url}" alt="Imagem" />`;
+          });
+          setContent(processedHtml);
+          console.log(processedHtml)
           setAuthor({
             id: post.authorId,
             name: post.authorName
