@@ -57,6 +57,14 @@ export interface TResponseGetPost {
   allPosts: IPost[];
 }
 
+export interface TResponseGetUser {
+  totalPosts: number;
+  posts: IPost[];
+  fullName: string;
+  username: string;
+  role: Role;
+}
+
 interface IPost {
   id: string;
   title: string;
