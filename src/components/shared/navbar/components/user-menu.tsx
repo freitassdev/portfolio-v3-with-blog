@@ -69,13 +69,10 @@ export default function UserMenu({ className, setIsAdmin }: {
                             <Separator />
                             <div className="flex flex-col gap-2 w-full">
                                 <Label>Sua conta</Label>
-                                <Button className="text-sm w-full bg-muted hover:bg-muted-foreground/30 text-primary justify-between gap-2">
+                                <Button className="text-sm w-full bg-muted hover:bg-muted-foreground/30 text-primary justify-between gap-2"
+                                    onClick={() => router.push(`/blog/user/${session?.user?.username}`)}>
                                     Meu Perfil
                                     <User className="h-5" />
-                                </Button>
-                                <Button className="text-sm w-full bg-muted hover:bg-muted-foreground/30 text-primary justify-between gap-2">
-                                    Editar Conta
-                                    <UserPen className="h-5" />
                                 </Button>
                             </div>
                             <div className="flex flex-col gap-2 w-full">
@@ -108,7 +105,6 @@ export default function UserMenu({ className, setIsAdmin }: {
                     </div>
                 </PopoverContent>
             </Popover>
-
         )
     }
     return (

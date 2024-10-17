@@ -79,17 +79,20 @@ export default function Navbar({ active }: { active: string }) {
                 style={{
                     width: submenuWidth,
                 }}>
-                <div className="flex flex-col justify-start items-center w-full gap-4">
-                    <Link href="#" className="hidden max-md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80">Início</Link>
-                    <Separator className="hidden max-md:block max-w-48" />
-                    <Link href="#" className="hidden max-md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80">Sobre Mim</Link>
-                    <Separator className="hidden max-md:block max-w-48" />
-                    <Link href="#" className="hidden max-md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80">Blog</Link>
+                <div className="w-full h-full relative flex flex-col gap-5">
+                    <div className="flex flex-col justify-start items-center w-full gap-4">
+                        <Link href="#" className="hidden max-md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80">Início</Link>
+                        <Separator className="hidden max-md:block max-w-48" />
+                        <Link href="#" className="hidden max-md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80">Sobre Mim</Link>
+                        <Separator className="hidden max-md:block max-w-48" />
+                        <Link href="#" className="hidden max-md:block text-lg text-foreground transition-all duration-200 hover:text-foreground/80">Blog</Link>
+                    </div>
+                    <div className="w-full">
+                        <Input placeholder="Pesquisar artigo..." iconStyle="h-5 w-5 md:hidden" className="md:hidden border-border/50" icon={Search} />
+                        <UserMenu setIsAdmin={setIsAdmin} className="absolute right-0 top-0 md:hidden" />
+                    </div>
                 </div>
-                <div className="w-full">
-                    <Input placeholder="Pesquisar artigo..." iconStyle="h-5 w-5 md:hidden" className="md:hidden border-border/50" icon={Search} />
-                    <UserMenu setIsAdmin={setIsAdmin} className="md:hidden" />
-                </div>
+
             </div>
         </>
     );
