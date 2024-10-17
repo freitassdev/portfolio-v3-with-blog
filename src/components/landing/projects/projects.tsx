@@ -64,7 +64,7 @@ export default function ProjectsSection() {
                         </h1>
                     </BoxReveal>
                 </div>
-                <div className="h-[22rem] md:h-[45rem] [perspective:1200px] relative  flex flex-col max-w-full mx-auto w-full  items-start justify-start my-4">
+                <div className="max-sm:h-[20rem] h-[22rem] md:h-[45rem] [perspective:1200px] relative  flex flex-col max-w-full mx-auto w-full  items-start justify-start my-4">
                     <Tabs tabs={tabs} />
                 </div>
             </div>
